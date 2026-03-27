@@ -9,25 +9,20 @@ DB_PASS="${DB_PASS:-eglisep_pass}"
 (
   MAX=30
   COUNT=0
-  until php -r "
-    try {
-      \$pdo = new PDO('mysql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME;charset=utf8mb4', '$DB_USER', '$DB_PASS');
-    } catch(Exception \$e) { exit(1); }
-  " 2>/dev/null; do
+  until php -r "try { new PDO('mysql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME;charset=utf8mb4','$DB_USER','$DB_PASS'); } catch(Exception \$e){ exit(1); }" 2>/dev/null; do
     COUNT=$((COUNT+1))
-    [ \$COUNT -ge \$MAX ] && exit 1
-    echo "[db] tentative \$COUNT/\$MAX..."
+    [ $COUNT -ge $MAX ] && exit 1
+    echo "[db] tentative $COUNT/$MAX..."
     sleep 3
   done
   php -r "
-    \$pdo = new PDO('mysql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME;charset=utf8mb4', '$DB_USER', '$DB_PASS');
-    \$sql = file_get_contents('/var/www/html/backend/schema.sql');
-    \$sql = preg_replace('/^CREATE DATABASE.*$/mi', '', \$sql);
-    \$sql = preg_replace('/^USE.*;$/mi', '', \$sql);
-    foreach(array_filter(array_map('trim', explode(';', \$sql))) as \$s) { if(\$s) \$pdo->exec(\$s); }
-    echo 'Schema OK' . PHP_EOL;
+    \$p = new PDO('mysql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME;charset=utf8mb4','$DB_USER','$DB_PASS');
+    \$s = file_get_contents('/var/www/html/backend/schema.sql');
+    \$s = preg_replace('/^CREATE DATABASE.*$/mi','',preg_replace('/^USE.*;$/mi','',\$s));
+    foreach(array_filter(array_map('trim',explode(';',\$s))) as \$q){ if(\$q) \$p->exec(\$q); }
+    echo 'Schema OK'.PHP_EOL;
   "
 ) &
 
 echo "[entrypoint] Démarrage Apache..."
-exec "\$@"
+exec apache2-foreground
