@@ -1,0 +1,432 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+// 1. Connexion à la base de données
+
+require_once __DIR__ . '/backend/config.php'; 
+
+// À mettre au début de votre index.php (accueil)
+function getYoutubeEmbedUrl($url) {
+    $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+    $longUrlRegex = '/youtube.com\/((?:embed|v|watch|shorts)\/|.*v=)([a-zA-Z0-9_-]+)/i';
+
+    if (preg_match($shortUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[1];
+    } elseif (preg_match($longUrlRegex, $url, $matches)) {
+        $youtube_id = $matches[2];
+    } else {
+        return $url;
+    }
+    return 'https://www.youtube.com/embed/' . $youtube_id;
+}
+
+// Assurez-vous aussi d'inclure votre config pour avoir accès à $pdo
+
+
+?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЛОВО ЖИЗНИ</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=VOTRE_CLE_API&lang=ru_RU" type="text/javascript"></script>
+    
+   <!--<script src="js/main.js" defer></script>-->
+    
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.php" class="logo">
+                    <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg " alt="КРАЕУГОЛНЫЙ КАМЕНЬ logo">
+                </a>
+            </div>
+            <nav class="navbar-center" aria-label="Main navigation">
+                <ul>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">О нас</a>
+                        <div class="dropdown-content">
+                            <a href="#">История церкви</a>
+                            <a href="Faith.html">Основы нашей Веры</a>
+                            <!--<a href="Welcome.html">Добро пожаловать</a>-->
+                            <a href="Vision.html">Видение</a>
+                            <a href="#">Команда служителей</a>
+                            
+                           <!-- <a href="socialWork.html">Социальная работа</a>-->
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">События</a>
+                        <div class="dropdown-content">
+                            <a href="#">Конференции</a>
+                            <a href="#">Мероприятия</a>
+                            <a href="#">Обучение</a>
+                           <!-- <a href="Learning.html">Обучение</a>
+                            <a href="musical-group.html">музыканты</a>-->
+
+                        </div>
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Служения</a>
+                            <div class="dropdown-content">
+                                <a href="#">Миссия</a>
+                                
+                                <a href="homeService.html">Домашние группы</a>
+                                <a href="alphaCourse.html">Альфа-курс</a>
+                                <a href="women.html">Женское служение</a>
+                                <a href="prayerRequest.html">Молитвенное служение</a>
+                                <a href="Older-generation.html">Старшее поколение</a>
+                                <a href="feedHungry.html">Накорми голодного</a>
+                                <a href="service.html">Хочу служить</a>
+                            </div>
+                        </li>
+                    </li>
+                    <li><a href="https://ruka-pomoshi23.ru/proekty/pomoshh-detyam/">Благотворительный фонд</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Богослужения</a>
+                        <div class="dropdown-content">
+                            <a href="Generale.html">Общие</a>
+                            <a href="For-kids.html">Для детей</a>
+                            <a href="Teens.html">Подростковые</a>
+                            <!--<a href="Youth.html">Молодежные</a>
+                            <a href="Older-generation.html">Старшее поколение</a>
+                            <a href="National.html">Национальные</a>-->
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <button class="donate-btn"><a href="donate.html">Пожертвовать</a></button>
+                <div class="header_right">
+                    <div class="search-container">
+                        <input type="text" id="site-search" placeholder="Поиск по сайту..." autocomplete="off">
+                        <button id="site-search-btn" aria-label="Поиск по сайту" type="button" class="site-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                    <!--<a href="#" class="lang-link active" data-lang="ru">RU</a> | <a href="#" class="lang-link" data-lang="en">EN</a>-->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- Hero Slider Section -->
+        <section class="hero-carousel" aria-roledescription="carousel" aria-label="Слайдер с важными событиями">
+            <div class="hero-carousel-inner">
+                <button class="hero-carousel-control prev" id="hero-prev" aria-label="Предыдущий слайд">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="hero-carousel-track" id="hero-track">
+                    <!-- Слайд 1 -->
+                    <article class="hero-slide">
+                        <a href="christmasConcert.html" class="hero-slide-link">
+                            <div class="hero-slide-image" style="background-image: url('images/canvas.png');"></div>
+                            <div class="hero-slide-overlay"></div>
+
+                            <div class="hero-slide-content">
+                                <span class="hero-slide-tag">Мероприятия</span>
+                                <h2 class="hero-slide-title">Большой рождественский концерт 6+</h2>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Слайд 2 -->
+                    <article class="hero-slide">
+                        <a href="For-kids.html" class="hero-slide-link">
+                            <div class="hero-slide-image" style="background-image: url('images/photo_2025-11-06_13-39-45.jpg');"></div>
+                            <div class="hero-slide-overlay"></div>
+
+                            <div class="hero-slide-content">
+                                <span class="hero-slide-tag">Мероприятия</span>
+                                <h2 class="hero-slide-title">Детский рождественский спектакль</h2>
+                            </div>
+                        </a>
+                    </article>
+                        <article class="hero-slide">
+                        <a href="For-kids.html" class="hero-slide-link">
+                            <div class="hero-slide-image" style="background-image: url('images/photo_2025-10-31_21-06-19.jpg');"></div>
+                            <div class="hero-slide-overlay"></div>
+
+                            <div class="hero-slide-content">
+                                <span class="hero-slide-tag">Мероприятия</span>
+                                <h2 class="hero-slide-title">Детский рождественский спектакль</h2>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Слайд 3 -->
+                    <article class="hero-slide">
+                        <a href="conferences.html" class="hero-slide-link">
+                            <div class="hero-slide-image" style="background-image: url('images/jeunes.jpeg');"></div>
+                            <div class="hero-slide-overlay"></div>
+
+                            <div class="hero-slide-content">
+                                <span class="hero-slide-tag">Мероприятия</span>
+                                <h2 class="hero-slide-title">ЮС конференция</h2>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+
+                <button class="hero-carousel-control next" id="hero-next" aria-label="Следующий слайд">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- Prayer Support Section -->
+        <section class="prayer-support">
+            <div class="container">
+                <a href="prayerRequest.html" class="btn btn-prayer">Молитвенная поддержка</a>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="events-section">
+            <div class="container">
+                <h2>События</h2>
+                <div class="events-calendar">
+                    <div class="calendar-header">
+                        <button class="arrow" aria-label="Previous month" id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <span class="month" data-month="0">Январь</span>
+                        <span class="month" data-month="1">Февраль</span>
+                        <span class="month" data-month="2">Март</span>
+                        <span class="month" data-month="3">Апрель</span>
+                        <span class="month" data-month="4">Май</span>
+                        <span class="month" data-month="5">Июнь</span>
+                        <span class="month" data-month="6">Июль</span>
+                        <span class="month" data-month="7">Август</span>
+                        <span class="month" data-month="8">Сентябрь</span>
+                        <span class="month" data-month="9">Октябрь</span>
+                        <span class="month" data-month="10">Ноябрь</span>
+                        <span class="month" data-month="11">Декабрь</span>
+                        <button class="arrow" aria-label="Next month" id="next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-grid" id="calendar-days">
+                        <!-- Calendar days will be populated by JavaScript -->
+                    </div>
+                    <p class="current-event-date" id="current-event-date"></p>
+                    <p class="current-event-time" id="current-event-time">11:00</p>
+                    <p class="current-event-description" id="current-event-description">Богослужение / Пастор Эдди Лео</p>
+                </div>
+
+                <div class="event-list" id="event-list">
+                    <!-- Events will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Videos Section -->
+        <section class="latest-videos">
+            <div class="container">
+                <h2>Последние видео</h2>
+                <div class="video-carousel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <?php
+                    try {
+                        // Récupération des 4 dernières vidéos
+                        $stmt = $pdo->query("SELECT * FROM church_videos ORDER BY created_at DESC LIMIT 3");
+                        $videos = $stmt->fetchAll();
+
+                        if ($videos) {
+                            foreach ($videos as $video) {
+                                $embedUrl = getYoutubeEmbedUrl($video['youtube_url']);
+                                ?>
+                                <div class="video-card" style="background: white; border: 2px solid #FFD700; border-radius: 12px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                                        <iframe 
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
+                                            src="<?= $embedUrl ?>" 
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                    <h3 style="margin-top: 15px; font-size: 1.1rem; color: #333; text-align: center;"><?= htmlspecialchars($video['title']) ?></h3>
+                                </div>
+                                <?php
+                            }
+                        } else {
+                            echo "<p>Пока нет доступных видео.</p>";
+                        }
+                    } catch (Exception $e) {
+                        echo "<p>Ошибка загрузки видео.</p>";
+                    }
+                    ?>
+                </div>
+                <button class="view-all-btn" id="view-all-btn">Все видео</button>
+            </div>
+        </section>
+
+    <!-- Modal pour la lecture de vidéo individuelle -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-content">
+            <div class="close-video-modal" id="close-video-modal">×</div>
+            <div class="video-container">
+                <iframe id="youtube-player" src="" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour toutes les vidéos -->
+    <div class="all-videos-modal" id="all-videos-modal">
+        <div class="close-modal" id="close-modal">×</div>
+        <div class="all-videos-header">
+            <h3>Все видео</h3>
+            <p>Полная коллекция проповедей, богослужений и семинаров</p>
+            <div class="video-categories" id="video-categories">
+                <button class="category-btn active" data-category="all">Все</button>
+                <button class="category-btn" data-category="sermon">Проповеди</button>
+                <button class="category-btn" data-category="worship">Богослужения</button>
+                <button class="category-btn" data-category="seminar">Семинары</button>
+                <button class="category-btn" data-category="youth">Молодежные</button>
+            </div>
+        </div>
+        <div class="all-videos-content" id="all-videos-content">
+            <!-- Toutes les vidéos seront affichées ici -->
+        </div>
+    </div>
+
+        <!-- All Videos Modal -->
+        <div class="all-videos-modal" id="all-videos-modal">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <div class="modal-content" id="all-videos-content">
+                
+                <!-- Videos will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Church Locations Section -->
+        <section class="church-locations">
+            <div class="container">
+                <h2>ЦЕРКВИ ЮФО</h2>
+                <div class="map-container">
+                    <div id="yandex-map"></div>
+                    <div class="location-popup">
+                        <h3>Адреса церквей «ЮФО»</h3>
+                        <div class="search-box">
+                            <input type="search" id="location-search" placeholder="Найти рядом с адресом" aria-label="Search church locations">
+                            <button type="submit" id="location-search-btn" aria-label="Search">🔍</button>
+                        </div>
+                        <div class="location-list" id="location-list">
+                            <!-- Locations will be populated by JavaScript -->
+                        </div>
+                        <button class="all-locations-btn" id="all-locations-btn">Все адреса</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="copyright">
+                        <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg" alt="Слово жизни footer logo">
+                        <div class="copyright-text">
+                            <p>© 2025 Слово жизни. Все права защищены.</p>
+                            <p>Местная религиозная организация</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="VK profile">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram channel">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-chevron-right"></i> О нас</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> События</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Богослужения</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Календарь</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Контакты</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Пасторская команда</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Москва, Павла Корчагина 2а</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@slovo-zhizni.ru">info@slovo-zhizni.ru</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Пн-Вс: 9:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-file-alt"></i> Политика конфиденциальности</a>
+                        <a href="#"><i class="fas fa-file-contract"></i> Публичная оферта</a>
+                        <a href="#"><i class="fas fa-balance-scale"></i> Реквизиты организации</a>
+                        <a href="#"><i class="fas fa-shield-alt"></i> Безопасность пожертвований</a>
+                    </div>
+                </div>
+            </div>
+            
+ 
+        </div>
+    </footer>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

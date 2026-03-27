@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЛОВО ЖИЗНИ</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/main.js" defer></script>
+
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.php" class="logo">
+                    <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg " alt="КРАЕУГОЛНЫЙ КАМЕНЬ logo">
+                </a>
+            </div>
+            <nav class="navbar-center" aria-label="Main navigation">
+                <ul>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">О нас</a>
+                        <div class="dropdown-content">
+                            <a href="#">История церкви</a>
+                            <a href="Faith.html">Основы нашей Веры</a>
+                            <!--<a href="Welcome.html">Добро пожаловать</a>-->
+                            <a href="Vision.html">Видение</a>
+                            <a href="#">Команда служителей</a>
+                            
+                           <!-- <a href="socialWork.html">Социальная работа</a>-->
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">События</a>
+                        <div class="dropdown-content">
+                            <a href="#">Конференции</a>
+                            <a href="#">Мероприятия</a>
+                            <a href="#">Обучение</a>
+                           <!-- <a href="Learning.html">Обучение</a>
+                            <a href="musical-group.html">музыканты</a>-->
+
+                        </div>
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Служения</a>
+                            <div class="dropdown-content">
+                                <a href="#">Миссия</a>
+                                
+                                <a href="homeService.html">Домашние группы</a>
+                                <a href="alphaCourse.html">Альфа-курс</a>
+                                <a href="women.html">Женское служение</a>
+                                <a href="prayerRequest.html">Молитвенное служение</a>
+                                <a href="Older-generation.html">Старшее поколение</a>
+                                <a href="feedHungry.html">Накорми голодного</a>
+                                <a href="service.html">Хочу служить</a>
+                            </div>
+                        </li>
+                    </li>
+                    <li><a href="https://ruka-pomoshi23.ru/proekty/pomoshh-detyam/">Благотворительный фонд</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Богослужения</a>
+                        <div class="dropdown-content">
+                            <a href="Generale.html">Общие</a>
+                            <a href="For-kids.html">Для детей</a>
+                            <a href="Teens.html">Подростковые</a>
+                            <!--<a href="Youth.html">Молодежные</a>
+                            <a href="Older-generation.html">Старшее поколение</a>
+                            <a href="National.html">Национальные</a>-->
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <button class="donate-btn"><a href="donate.html">Пожертвовать</a></button>
+                <div class="header_right">
+                    <div class="search-container">
+                        <input type="text" id="site-search" placeholder="Поиск по сайту..." autocomplete="off">
+                        <button id="site-search-btn" aria-label="Поиск по сайту" type="button" class="site-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                    <!--<a href="#" class="lang-link active" data-lang="ru">RU</a> | <a href="#" class="lang-link" data-lang="en">EN</a>-->
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="header">
+        <img src="images/img2.webp" alt="Контакты церкви">
+        <div class="breadcrumb">
+            <a href="#">Главная</a>
+            <span>•</span>
+            <span>Контакты</span>
+        </div>
+        <div class="header-title">Контакты</div>
+    </div>
+    
+    <div class="container">
+        <h1 class="section-title">Адреса церкви «Слово жизни»</h1>
+        
+        <div class="contacts-section">
+            <div class="contacts-header">
+                <h2 class="contacts-title">Контакты</h2>
+                <div class="view-buttons">
+                    <button class="view-button active" id="listView">Списком</button>
+                    <button class="view-button" id="mapView">На карте</button>
+                </div>
+            </div>
+            
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-header">
+                        <div>
+                            <h3 class="location-title">Москва (Алексеевская)</h3>
+                            <p>Москва, Павла Корчагина 2а</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://placehold.co/50x50/1a1a2e/ffffff?text=M" alt="Маттс-Ола Исхоел" style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                            <span>Маттс-Ола Исхоел</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item" onclick="openMap('Москва, Павла Корчагина 2а')">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <div class="contact-name">Адрес</div>
+                                <div class="contact-value">Москва, Павла Корчагина 2а</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <div class="contact-value">+7 (495) 181-75-26</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <div class="contact-value">church@wolrus.org</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <div class="contact-value">Telegram</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-schedule">
+                        <h4>Богослужения:</h4>
+                        <p>Общее — суббота 18:00;</p>
+                        <p>воскресенье 11:00, 14:00</p>
+                        <p>Молодежное — воскресенье 17:30</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-header">
+                        <div>
+                            <h3 class="location-title">Москва (Волгоградский проспект)</h3>
+                            <p>Москва, Сосинская 43с8</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://placehold.co/50x50/1a1a2e/ffffff?text=M" alt="Михаил Васильевич Котлан" style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                            <span>Михаил Васильевич Котлан</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item" onclick="openMap('Москва, Сосинская 43с8')">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <div class="contact-name">Адрес</div>
+                                <div class="contact-value">Москва, Сосинская 43с8</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <div class="contact-value">+7 (925) 788-40-80</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <div class="contact-value">church@wolrus.org</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <div class="contact-value">Telegram</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-schedule">
+                        <h4>Богослужения:</h4>
+                        <p>Общее — воскресенье 11:00</p>
+                        <p>Молодежное — воскресенье 17:30</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-header">
+                        <div>
+                            <h3 class="location-title">Александров</h3>
+                            <p>Александров, ул. Юбилейная 11а</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://placehold.co/50x50/1a1a2e/ffffff?text=A" alt="Андрей Александрович Самойлов" style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                            <span>Андрей Александрович Самойлов</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item" onclick="openMap('Александров, ул. Юбилейная 11а')">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <div class="contact-name">Адрес</div>
+                                <div class="contact-value">Александров, ул. Юбилейная 11а</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <div class="contact-value">+7 (915) 771-50-83</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <div class="contact-value">Telegram</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-schedule">
+                        <h4>Богослужения:</h4>
+                        <p>Общее — воскресенье 11:00</p>
+                        <p>Молодежное — воскресенье 15:00</p>
+                    </div>
+                </div>
+                
+                <!-- New Krasnodar location -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div>
+                            <h3 class="location-title">Краснодар</h3>
+                            <p>Краснодар, Московская улица 65а</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://placehold.co/50x50/1a1a2e/ffffff?text=K" alt="Пастор Краснодар" style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                            <span>Пастор Краснодар</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item" onclick="openMap('Краснодар, Московская улица 65а')">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <div class="contact-name">Адрес</div>
+                                <div class="contact-value">Краснодар, Московская улица 65а</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <div class="contact-value">+7 (XXX) XXX-XX-XX</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <div class="contact-value">krasnodar@wolrus.org</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-schedule">
+                        <h4>Богослужения:</h4>
+                        <p>Общее — воскресенье 11:00</p>
+                        <p>Молодежное — воскресенье 17:00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="additionalLocations" style="display: none;">
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <div class="location-header">
+                            <div>
+                                <h3 class="location-title">Балаково</h3>
+                                <p>Балаково, ул. Заречная 66</p>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="https://placehold.co/50x50/1a1a2e/ffffff?text=M" alt="Михаил Аркадьевич Григорьян" style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                                <span>Михаил Аркадьевич Григорьян</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item" onclick="openMap('Балаково, ул. Заречная 66')">
+                                <div class="contact-icon">📍</div>
+                                <div class="contact-text">
+                                    <div class="contact-name">Адрес</div>
+                                    <div class="contact-value">Балаково, ул. Заречная 66</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📞</div>
+                                <div class="contact-text">
+                                    <div class="contact-value">+7 (937) 108-45-63</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">🌐</div>
+                                <div class="contact-text">
+                                    <div class="contact-value">Сайт</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-schedule">
+                            <h4>Богослужения:</h4>
+                            <p>Общее — воскресенье 10:00, 13:00</p>
+                            <p>Молодежное — воскресенье 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="location-card">
+                        <div class="location-header">
+                            <div>
+                                <h3 class="location-title">Балашиха</h3>
+                                <p>Балашиха, Разинское шоссе 12</p>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="images/img1.webp" alt="Павел Анатольевич Усенко" style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                                <span>Павел Анатольевич Усенко</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item" onclick="openMap('Балашиха, Разинское шоссе 12')">
+                                <div class="contact-icon">📍</div>
+                                <div class="contact-text">
+                                    <div class="contact-name">Адрес</div>
+                                    <div class="contact-value">Балашиха, Разинское шоссе 12</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📞</div>
+                                <div class="contact-text">
+                                    <div class="contact-value">+7 (926) 263-46-65</div>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📱</div>
+                                <div class="contact-text">
+                                    <div class="contact-value">Telegram</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-schedule">
+                            <h4>Богослужения:</h4>
+                            <p>Общее — воскресенье 11:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="show-more-button" id="showMoreButton">Показать ещё</button>
+        </div>
+        
+        <div class="legal-section">
+            <h2 class="legal-title">Юридические реквизиты</h2>
+            <div class="legal-content">
+                <p><strong>Местная религиозная организация Библейский центр христиан веры евангельской «Слово жизни»</strong><br>
+                ИНН 7726025431 / ОГРН 1037739249569<br>
+                Юридический/фактический адрес: 129626 г. Москва, ул. Павла Корчагина, д. 2а<br>
+                Почтовый адрес: 129626, г. Москва, а/я 178.</p>
+                
+                <p><strong>Централизованная религиозная организация «Ассоциация христиан веры евангельской (пятидесятников) «Церкви Веры»</strong><br>
+                ИНН 7726284556, ОГРН 1037739245411, бланк свидетельства Министерства юстиции ЦА 00908, учетный №011010282, дата выдачи 19.01.2012 г.</p>
+                
+                <p><strong>Централизованная религиозная организация Содружество церквей христиан веры евангельской (пятидесятников) «Слово жизни»</strong><br>
+                ИНН 7719286496 / ОГРН 1037739246951.<br>
+                Юридический/фактический адрес: 129626 г. Москва, ул. Павла Корчагина, д. 2<br>
+                Почтовый адрес: 129626, г. Москва, а/я 178.</p>
+            </div>
+        </div>
+    </div>
+
+        <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="copyright">
+                        <img src="https://placehold.co/40x40/FFD700/000000?text=Л" alt="Слово жизни footer logo">
+                        <div class="copyright-text">
+                            <p>© 2025 Слово жизни. Все права защищены.</p>
+                            <p>Местная религиозная организация</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="VK profile">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram channel">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-chevron-right"></i> О нас</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> События</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Богослужения</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Календарь</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Контакты</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Пасторская команда</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Москва, Павла Корчагина 2а</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@slovo-zhizni.ru">info@slovo-zhizni.ru</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Пн-Вс: 9:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Юридическая информация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-file-alt"></i> Политика конфиденциальности</a>
+                        <a href="#"><i class="fas fa-file-contract"></i> Публичная оферта</a>
+                        <a href="#"><i class="fas fa-balance-scale"></i> Реквизиты организации</a>
+                        <a href="#"><i class="fas fa-shield-alt"></i> Безопасность пожертвований</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal-info">
+                <p>* Местная религиозная организация Библейский центр христиан веры евангельской «Слово жизни» ОГРН 1037739249569, зарегистрирована в Минюсте РФ, бланк № 76 08941, учетный № 7711010455, дата выдачи 27.12.2010г.</p>
+                <p>** Централизованная религиозная организация Содружество церквей христиан веры евангельской (пятидесятников) «Слово жизни» ОГРН 1037739246951, бланк свидетельства Министерства юстиции ЦА 03303, учетный № 0011010266, дата выдачи 13.04.2016г.</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Сайт разработан с любовью для служения Божьему народу</p>
+            </div>
+        </div>
+    </footer>
+
+  <script src="js/contact.js"></script>
+</body>
+</html>

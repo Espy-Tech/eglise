@@ -1,0 +1,144 @@
+/* ========== GLOBAL RESPONSIVE LAYER ========== */
+
+/* Limiter les débordements horizontaux */
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Rendre les médias fluides */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Les tableaux ne doivent pas casser la largeur de l'écran */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Conteneur générique sur tout le site */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 16px;
+}
+
+/* ========= HEADER / NAVBAR ========= */
+
+@media (max-width: 992px) {
+    .navbar .container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+/* Sur mobile : menu burger + menu déroulant */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-center {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary-white, #ffffff);
+        box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+        padding: 16px 20px;
+        border-radius: 12px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 999;
+    }
+
+    .navbar-center.active {
+        display: flex;
+    }
+
+    .navbar-center ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .navbar-center a {
+        width: 100%;
+        padding-block: 6px;
+    }
+}
+
+/* ========= SECTIONS & BLOCS EN COLONNES ========= */
+
+/* Tous les blocs avec "grid", "row" ou "columns" dans leur class
+   passent en une seule colonne sur mobile */
+@media (max-width: 768px) {
+
+    [class*="grid"],
+    [class*="Grid"],
+    [class*="row"],
+    [class*="Row"],
+    [class*="columns"],
+    [class*="Columns"] {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .section,
+    .content,
+    .main-content {
+        padding-inline: 16px;
+    }
+}
+
+/* ========= PIED DE PAGE ========= */
+
+@media (max-width: 768px) {
+    .footer,
+    .footer-inner,
+    .footer-columns,
+    .footer-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        text-align: left;
+    }
+}
+
+/* ========= TYPO & ESPACEMENTS PETITS ÉCRANS ========= */
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .section {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+}

@@ -1,0 +1,51 @@
+-- Créer la base (si besoin)
+CREATE DATABASE IF NOT EXISTS eglisep CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE eglisep;
+
+CREATE TABLE IF NOT EXISTS prayer_requests (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    phone VARCHAR(64) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    teams TEXT NULL,
+    experience VARCHAR(64) NULL,
+    message TEXT NULL,
+    ip_address VARCHAR(64) NULL,
+    created_at DATETIME NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS subscriptions (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    consent TINYINT(1) NOT NULL DEFAULT 0,
+    ip_address VARCHAR(64) NULL,
+    created_at DATETIME NOT NULL,
+    UNIQUE KEY uniq_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE IF NOT EXISTS admin_users (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    full_name VARCHAR(255) DEFAULT NULL,
+    created_at DATETIME NOT NULL,
+    UNIQUE KEY uniq_admin_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS church_videos (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    youtube_url VARCHAR(255) NOT NULL,
+    created_at DATETIME NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS calendar_events (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    time VARCHAR(10) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

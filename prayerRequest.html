@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЛОВО ЖИЗНИ</title>
+    <link rel="stylesheet" href="css/index.css">
+   <link rel="stylesheet" href="css/prayerRequest.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=VOTRE_CLE_API&lang=ru_RU" type="text/javascript"></script>
+    
+    <script src="js/main.js" defer></script>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.php" class="logo">
+                    <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg " alt="КРАЕУГОЛНЫЙ КАМЕНЬ logo">
+                </a>
+            </div>
+            <nav class="navbar-center" aria-label="Main navigation">
+                <ul>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">О нас</a>
+                        <div class="dropdown-content">
+                            <a href="#">История церкви</a>
+                            <a href="Faith.html">Основы нашей Веры</a>
+                            <!--<a href="Welcome.html">Добро пожаловать</a>-->
+                            <a href="Vision.html">Видение</a>
+                            <a href="#">Команда служителей</a>
+                            
+                           <!-- <a href="socialWork.html">Социальная работа</a>-->
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">События</a>
+                        <div class="dropdown-content">
+                            <a href="#">Конференции</a>
+                            <a href="#">Мероприятия</a>
+                            <a href="#">Обучение</a>
+                           <!-- <a href="Learning.html">Обучение</a>
+                            <a href="musical-group.html">музыканты</a>-->
+
+                        </div>
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Служения</a>
+                            <div class="dropdown-content">
+                                <a href="#">Миссия</a>
+                                
+                                <a href="homeService.html">Домашние группы</a>
+                                <a href="alphaCourse.html">Альфа-курс</a>
+                                <a href="women.html">Женское служение</a>
+                                <a href="prayerRequest.html">Молитвенное служение</a>
+                                <a href="Older-generation.html">Старшее поколение</a>
+                                <a href="feedHungry.html">Накорми голодного</a>
+                                <a href="service.html">Хочу служить</a>
+                            </div>
+                        </li>
+                    </li>
+                    <li><a href="https://ruka-pomoshi23.ru/proekty/pomoshh-detyam/">Благотворительный фонд</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Богослужения</a>
+                        <div class="dropdown-content">
+                            <a href="Generale.html">Общие</a>
+                            <a href="For-kids.html">Для детей</a>
+                            <a href="Teens.html">Подростковые</a>
+                            <!--<a href="Youth.html">Молодежные</a>
+                            <a href="Older-generation.html">Старшее поколение</a>
+                            <a href="National.html">Национальные</a>-->
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <button class="donate-btn"><a href="donate.html">Пожертвовать</a></button>
+                <div class="header_right">
+                    <div class="search-container">
+                        <input type="text" id="site-search" placeholder="Поиск по сайту..." autocomplete="off">
+                        <button id="site-search-btn" aria-label="Поиск по сайту" type="button" class="site-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                    <!--<a href="#" class="lang-link active" data-lang="ru">RU</a> | <a href="#" class="lang-link" data-lang="en">EN</a>-->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!--<video autoplay muted loop class="hero-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-pastor-reading-the-bible-in-a-church-39779-large.mp4" type="video/mp4">
+        </video>-->
+        <div class="hero-content">
+            <p class="hero-subtitle">СЛУЖЕНИЕ МОЛИТВЫ</p>
+            <h1 class="hero-title">Молитвенная служение</h1>
+            <p class="hero-description">Присоединяйтесь к нашему молитвенному служению, где мы вместе возносим молитвы за нужды церкви, города и каждого человека. Наша молитва - это сила, которая меняет жизни и приносит благословение.</p>
+            <div class="hero-cta">
+                <a href="#prayer-form" class="btn">Оставить молитвенную нужду</a>
+                <a href="#teams" class="btn btn-outline">Присоединиться к команде</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Молитвенных команд</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Непрерывная молитва</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Ответов на молитвы</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Дней в неделю</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Наши молитвенные служения</h2>
+            <p class="section-subtitle">Мы предлагаем различные форматы молитвенного служения, чтобы каждый мог найти подходящий способ присоединиться к молитве</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-hands-praying"></i>
+                        </div>
+                        <h3 class="service-title">Ходатайственная молитва</h3>
+                    </div>
+                    <div class="service-body">
+                        <p class="service-description">Молитва за нужды церкви, служения, города и отдельных людей. Мы верим в силу ходатайственной молитвы и ее способность изменять обстоятельства.</p>
+                        <ul class="service-features">
+                            <li>Молитва за лидеров церкви</li>
+                            <li>Молитва за миссионерские проекты</li>
+                            <li>Молитва за исцеление и восстановление</li>
+                            <li>Молитва за пробуждение в городе</li>
+                        </ul>
+                        <div class="service-meta">
+                            <span><i class="fas fa-clock"></i> Ежедневно</span>
+                            <span><i class="fas fa-users"></i> Онлайн и оффлайн</span>
+                        </div>
+                        <button class="btn btn-small join-service" data-service="Ходатайственная молитва">Присоединиться</button>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="service-title">Исцеление и освобождение</h3>
+                    </div>
+                    <div class="service-body">
+                        <p class="service-description">Служение молитвы за физическое, эмоциональное и духовное исцеление. Мы верим, что Бог исцеляет и освобождает сегодня.</p>
+                        <ul class="service-features">
+                            <li>Молитва за физическое исцеление</li>
+                            <li>Молитва за эмоциональное восстановление</li>
+                            <li>Молитва за освобождение от зависимостей</li>
+                            <li>Индивидуальные молитвенные сессии</li>
+                        </ul>
+                        <div class="service-meta">
+                            <span><i class="fas fa-clock"></i> Пятница, Суббота</span>
+                            <span><i class="fas fa-users"></i> По записи</span>
+                        </div>
+                        <button class="btn btn-small join-service" data-service="Исцеление и освобождение">Записаться</button>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3 class="service-title">Молитва за пробуждение</h3>
+                    </div>
+                    <div class="service-body">
+                        <p class="service-description">Стратегическая молитва за пробуждение в нашем городе, стране и мире. Мы молимся о движении Духа Святого в этом поколении.</p>
+                        <ul class="service-features">
+                            <li>Молитва за молодежь и студентов</li>
+                            <li>Молитва за семьи и браки</li>
+                            <li>Молитва за образование и культуру</li>
+                            <li>Молитва за правительство и власть</li>
+                        </ul>
+                        <div class="service-meta">
+                            <span><i class="fas fa-clock"></i> Вторник 20:30</span>
+                            <span><a href="https://t.me/+79964755983" class="online-link" target="_blank">Онлайн</a></span>
+                        </div>
+                        <button class="btn btn-small join-service" data-service="Молитва за пробуждение">Присоединиться</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Teams Section -->
+    <section class="prayer-teams" id="teams">
+        <div class="container">
+            <h2 class="section-title">Молитвенные команды</h2>
+            <p class="section-subtitle">Присоединяйтесь к одной из наших молитвенных команд и станьте частью силы, которая меняет мир через молитву</p>
+            
+            <div class="teams-container">
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Молитва за Израиль">
+                        <div class="team-overlay"></div>
+                        <h3 class="team-title">За Израиль</h3>
+                    </div>
+                    <div class="team-body">
+                        <div class="team-schedule">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Понедельник, 15:00</span>
+                        </div>
+                        <p class="team-description">Молитва за мир в Иерусалиме, за народ Израиля и исполнение библейских пророчеств.</p>
+                        <div class="team-actions">
+                            <button class="btn btn-small join-team" data-team="За Израиль">Присоединиться</button>
+                            <button class="btn btn-small btn-outline-details" data-team="За Израиль">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Молодежная молитва">
+                        <div class="team-overlay"></div>
+                        <h3 class="team-title">Молодежная молитва</h3>
+                    </div>
+                    <div class="team-body">
+                        <div class="team-schedule">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Среда, 19:30</span>
+                        </div>
+                        <p class="team-description">Молитва за молодежь, студентов, призвание и духовный рост нового поколения.</p>
+                        <div class="team-actions">
+                            <button class="btn btn-small join-team" data-team="Молодежная молитва">Присоединиться</button>
+                            <button class="btn btn-small btn-outline-details" data-team="Молодежная молитва">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-header">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Молитва за семьи">
+                        <div class="team-overlay"></div>
+                        <h3 class="team-title">За семьи</h3>
+                    </div>
+                    <div class="team-body">
+                        <div class="team-schedule">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Понедельник, 21:00</span>
+                        </div>
+                        <p class="team-description">Молитва за укрепление браков, восстановление отношений и благословение семей.</p>
+                        <div class="team-actions">
+                            <button class="btn btn-small join-team" data-team="За семьи">Присоединиться</button>
+                            <button class="btn btn-small btn-outline-details" data-team="За семьи">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Свидетельства</h2>
+            <p class="section-subtitle">Истории людей, которые испытали силу молитвы в своей жизни</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Когда я переживал тяжелый период в жизни, молитвенная<br> команда церкви поддержала меня. Их молитвы принесли мир в мое сердце <br>и решение в, казалось бы, безвыходной ситуации. Я благодарен Богу за это служение!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Андрей" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Андрей Петров</h4>
+                            <p>Участник молитвенной команды</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Молитвенное служение изменило мою жизнь. Присоединившись <br> к команде, молящейся за пробуждение, я не только увидела ответы на молитвы,<br> но и сама изменилась. Молитва стала не обязанностью, а радостным общением с Богом."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Мария" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Мария Иванова</h4>
+                            <p>Участница молитвенной команды</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Благодаря молитвенному служению я получил исцеление от давней болезни. <br>Врачи говорили, что шансов нет, но вера и молитва церкви <br>совершили чудо. Сейчас я полностью здоров и служу в молитвенной команде."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Дмитрий" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Дмитрий Соколов</h4>
+                            <p>Участник молитвенной команды</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Наша семья была на грани распада, но молитвенная поддержка церкви спасла наш брак. <br>Сегодня мы с мужем служим вместе в команде за семьи и помогаем<br> другим парам обрести гармонию в отношениях."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Ольга" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Ольга и Игорь Кузнецовы</h4>
+                            <p>Участники молитвенной команды</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Duplicate for seamless scrolling -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Когда я переживал тяжелый период в жизни, <br>молитвенная команда церкви поддержала меня. Их молитвы принесли мир в мое сердце и решение в, <br>казалось бы, безвыходной ситуации. Я благодарен Богу за это служение!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Андрей" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Андрей Петров</h4>
+                            <p>Участник молитвенной команды</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Молитвенное служение изменило мою жизнь. Присоединившись к команде, молящейся за пробуждение, я не только увидела ответы на молитвы, но и сама изменилась. Молитва стала не обязанностью, а радостным общением с Богом."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Мария" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Мария Иванова</h4>
+                            <p>Участница молитвенной команды</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Готовы присоединиться к молитве?</h2>
+            <p class="cta-description">Независимо от вашего опыта, вы можете стать частью нашего молитвенного служения. <br>Мы верим, что каждый верующий призван к молитве.</p>
+            <a href="#prayer-form" class="btn">Присоединиться к молитвенной команде</a>
+        </div>
+    </section>
+
+    <!-- Prayer Form Section -->
+    <section class="prayer-form-section" id="prayer-form">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Присоединиться к молитвенному служению</h2>
+                
+                <form id="prayerRequestForm" method="post" action="backend/save_prayer_request.php">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Имя и Фамилия</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Номер телефона</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">К какой молитвенной команде хотите присоединиться?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="israel" name="teams[]" value="За Израиль">
+                                <label for="israel">за Израиль, понедельник в 15:00</label>
+                            <!--</div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="awakening" name="teams[]" value="За Пробуждение">
+                                <label for="awakening">за Пробуждение, вторник в 20:30</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="maternal" name="teams[]" value="Материнское служение">
+                                <label for="maternal">Материнское молитвенное служение, понедельник в 19:00</label>
+                            </div>-->
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="thanksgiving" name="teams[]" value="За Благовестие">
+                                <label for="thanksgiving">за Благовестие, среда в 21:30</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="missions" name="teams[]" value="За Миссии">
+                                <label for="missions">за Миссии, суббота в 17:00 онлайн, и в 13:00 в церкви</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="experience">Ваш опыт в молитвенном служении</label>
+                        <select id="experience" name="experience" class="select-input">
+                            <option value="">Выберите вариант</option>
+                            <option value="beginner">Начинающий</option>
+                            <option value="some">Есть некоторый опыт</option>
+                            <option value="experienced">Опытный</option>
+                            <option value="leader">Лидер молитвенной группы</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">Почему вы хотите присоединиться к молитвенному служению?</label>
+                        <textarea id="message" name="message" class="textarea-input" placeholder="Расскажите о вашей мотивации..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="copyright">
+                        <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg" alt="Слово жизни footer logo">
+                        <div class="copyright-text">
+                            <p>© 2025 Слово жизни. Все права защищены.</p>
+                            <p>Местная религиозная организация</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="VK profile">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram channel">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-chevron-right"></i> О нас</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> События</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Богослужения</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Календарь</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Контакты</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Пасторская команда</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Москва, Павла Корчагина 2а</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@slovo-zhizni.ru">info@slovo-zhizni.ru</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Пн-Вс: 9:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-file-alt"></i> Политика конфиденциальности</a>
+                        <a href="#"><i class="fas fa-file-contract"></i> Публичная оферта</a>
+                        <a href="#"><i class="fas fa-balance-scale"></i> Реквизиты организации</a>
+                        <a href="#"><i class="fas fa-shield-alt"></i> Безопасность пожертвований</a>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </footer>
+    <!-- Modal for Service Details -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalServiceTitle">Детали служения</h3>
+                <button class="modal-close" id="closeServiceModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalServiceContent">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Team Details -->
+    <div class="modal" id="teamModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTeamTitle">Детали команды</h3>
+                <button class="modal-close" id="closeTeamModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalTeamContent">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Join Form -->
+    <div class="modal" id="joinModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalJoinTitle">Присоединиться к служению</h3>
+                <button class="modal-close" id="closeJoinModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="joinForm">
+                    <div class="form-group">
+                        <label class="form-label" for="joinName">Имя и Фамилия</label>
+                        <input type="text" id="joinName" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="joinPhone">Номер телефона</label>
+                        <input type="tel" id="joinPhone" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="joinEmail">Email</label>
+                        <input type="email" id="joinEmail" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="joinService">Служение/Команда</label>
+                        <input type="text" id="joinService" class="form-input" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="joinMessage">Дополнительная информация</label>
+                        <textarea id="joinMessage" class="textarea-input" placeholder="Расскажите о себе..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   <script src="js/prayerRequest.js"></script>
+</body>
+</html>

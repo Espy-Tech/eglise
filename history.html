@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЛОВО ЖИЗНИ</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=VOTRE_CLE_API&lang=ru_RU" type="text/javascript"></script>
+    <script src="js/main.js" defer></script>
+
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.php" class="logo">
+                    <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg " alt="КРАЕУГОЛНЫЙ КАМЕНЬ logo">
+                </a>
+            </div>
+            <nav class="navbar-center" aria-label="Main navigation">
+                <ul>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">О нас</a>
+                        <div class="dropdown-content">
+                            <a href="#">История церкви</a>
+                            <a href="Faith.html">Основы нашей Веры</a>
+                            <!--<a href="Welcome.html">Добро пожаловать</a>-->
+                            <a href="Vision.html">Видение</a>
+                            <a href="#">Команда служителей</a>
+                            
+                           <!-- <a href="socialWork.html">Социальная работа</a>-->
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">События</a>
+                        <div class="dropdown-content">
+                            <a href="#">Конференции</a>
+                            <a href="#">Мероприятия</a>
+                            <a href="#">Обучение</a>
+                           <!-- <a href="Learning.html">Обучение</a>
+                            <a href="musical-group.html">музыканты</a>-->
+
+                        </div>
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Служения</a>
+                            <div class="dropdown-content">
+                                <a href="#">Миссия</a>
+                                
+                                <a href="homeService.html">Домашние группы</a>
+                                <a href="alphaCourse.html">Альфа-курс</a>
+                                <a href="women.html">Женское служение</a>
+                                <a href="prayerRequest.html">Молитвенное служение</a>
+                                <a href="Older-generation.html">Старшее поколение</a>
+                                <a href="feedHungry.html">Накорми голодного</a>
+                                <a href="service.html">Хочу служить</a>
+                            </div>
+                        </li>
+                    </li>
+                    <li><a href="https://ruka-pomoshi23.ru/proekty/pomoshh-detyam/">Благотворительный фонд</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Богослужения</a>
+                        <div class="dropdown-content">
+                            <a href="Generale.html">Общие</a>
+                            <a href="For-kids.html">Для детей</a>
+                            <a href="Teens.html">Подростковые</a>
+                            <!--<a href="Youth.html">Молодежные</a>
+                            <a href="Older-generation.html">Старшее поколение</a>
+                            <a href="National.html">Национальные</a>-->
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <button class="donate-btn"><a href="donate.html">Пожертвовать</a></button>
+                <div class="header_right">
+                    <div class="search-container">
+                        <input type="text" id="site-search" placeholder="Поиск по сайту..." autocomplete="off">
+                        <button id="site-search-btn" aria-label="Поиск по сайту" type="button" class="site-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                    <!--<a href="#" class="lang-link active" data-lang="ru">RU</a> | <a href="#" class="lang-link" data-lang="en">EN</a>-->
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <section class="hero">
+            <h1>СЛОВО ЖИЗНИ</h1>
+            <div class="subtitle">30 лет истории</div>
+        </section>
+        
+        <section class="intro">
+            <p>30 лет назад церковь «Слово жизни» открыла свои двери, чтобы стать местом, где каждый человек сможет расти в своей вере и переживать любовь Господа.</p>
+            <p>Это история одной церкви с большой историей. Церкви, которая призвана идти до края Земли, чтобы строить Божье Царство.</p>
+        </section>
+
+        <!-- Auto-scrolling Slider -->
+        <section class="slider-section">
+            <div class="slider-container">
+                <div class="slider" id="autoSlider">
+                    <div class="slide">
+                        <div class="slide-content">
+                            <img src="images/img1.webp" alt="Основание церкви в 1987 году" class="slide-image">
+                            <div class="slide-year">1987</div>
+                            <p class="slide-text">Ульф Экман провозгласил открытие церкви «Слово жизни» в Москве и рукоположил на пасторство Кристиана Окерхнельма, миссионера из Швеции</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <img src="images/img6.jpg" alt="Библейские семинары 1995" class="slide-image">
+                            <div class="slide-year">1995</div>
+                            <p class="slide-text">Открытие Библейских семинаров в Москве, к которым присоединилось 650 слушателей. Первыми деканами стали миссионеры Калле и Ингрид Лилья</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <img src="images/img6.jpg" alt="Год для Бога 2006" class="slide-image">
+                            <div class="slide-year">2006</div>
+                            <p class="slide-text">Начался первый проект «Год для Бога», участники которого полностью посвящают свое время служению и на целый год погружаются во внутреннюю работу церкви</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <img src="images/img6.jpg" alt="Второе здание 2016" class="slide-image">
+                            <div class="slide-year">2016</div>
+                            <p class="slide-text">Начали проводиться богослужения во втором здании церкви на Волгоградском проспекте, о котором мы много лет молились в единстве</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <img src="images/img4.jpg" alt="30-летие церкви 2025" class="slide-image">
+                            <div class="slide-year">2025</div>
+                            <p class="slide-text">С днем рождения, церковь! Мы отмечаем этот юбилей с глубокой благодарностью Господу за все, что Он совершил среди нас за последние 30 лет.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+        </section>
+        
+        <section class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">1987</h3>
+                    <div class="person">Ульф Экман</div>
+                    <img src="images/img1.webp" alt="Основание церкви в 1987 году" class="history-image">
+                    <p>Ульф Экман провозгласил открытие церкви «Слово жизни» в Москве и рукоположил на пасторство Кристиана Окерхнельма, миссионера из Швеции</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="date">10 сентября 1995</h3>
+                    <img src="images/img6.jpg" alt="Библейские семинары 1995" class="history-image">
+                    <p>Открытие Библейских семинаров в Москве, к которым присоединилось 650 слушателей. Первыми деканами стали миссионеры Калле и Ингрид Лилья</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">1994</h3>
+                    <img src="images/img6.jpg" alt="Матто-Ола Иохсел 1994" class="history-image">
+                    <p>Матто-Ола Иохсел стал старшим пастором церкви «Слово жизни» в Москве. Тогда же была создана Ассоциация «Церкви веры» и прошла первая молодежная конференция ЮО</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">1998</h3>
+                    <img src="images/img6.jpg" alt="Здание на Алексеевской 1998" class="history-image">
+                    <p>Стали проводиться первые богослужения в здании церкви на Алексеевской, которое на тот момент было в процессе капитального ремонта</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">2006</h3>
+                    <img src="images/img6.jpg" alt="Год для Бога 2006" class="history-image">
+                    <p>Начался первый проект «Год для Бога», участники которого полностью посвящают свое время служению и на целый год погружаются во внутреннюю работу церкви</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">2007</h3>
+                    <img src="images/img6.jpg" alt="Лидерская школа 2007" class="history-image">
+                    <p>Открытие Лидерской школы «Слово жизни» — следующей ступени после Библейских семинаров. Это практическая подготовка к служению, которая охватывает все главные стороны церковной работы</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">2016</h3>
+                    <img src="images/img6.jpg" alt="Второе здание 2016" class="history-image">
+                    <p>Начали проводиться богослужения во втором здании церкви на Волгоградском проспекте, о котором мы много лет молились в единстве</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">2020</h3>
+                    <img src="images/img6.jpg" alt="Ребрендинг 2020" class="history-image">
+                    <p>Церковь «Слово жизни» получила ребрендинг. Мы все та же современная церковь с древним посланием, у которой теперь еще появился актуальный фирменный стиль</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">2023</h3>
+                    <img src="images/img6.jpg" alt="Альянс церквей 2023" class="history-image">
+                    <p>Был создан Альянс церквей «Слово жизни», он объединил множество поместных церквей России и филиалы на миссионерских полях в других странах</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">2024</h3>
+                    <img src="images/img6.jpg" alt="Третье здание 2024" class="history-image">
+                    <p>Мы расширились: третье здание церкви на Маленковской открыло двери для проведения богослужений</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="year">2025</h3>
+                    <img src="images/img6.jpg" alt="30-летие церкви 2025" class="history-image">
+                    <p>С днем рождения, церковь! Мы отмечаем этот юбилей с глубокой благодарностью Господу за все, что Он совершил среди нас за последние 30 лет.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="conclusion">
+            <p>А также хотим поблагодарить наших прихожан за их любовь и преданность Богу и Его Церкви. Давайте вместе смотреть в будущее с трепетом и верой в то, что Бог и дальше будет вести нас вперед в Своей благой воле, шаг за шагом, день за днем.</p>
+            
+            <div class="signature">
+                <p><strong>Матто-Ола и Ранди Иохсел,</strong></p>
+                <p><strong>пасторы церкви «Слово жизни»</strong></p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="copyright">
+                        <img src="https://placehold.co/40x40/FFD700/000000?text=Л" alt="Слово жизни footer logo">
+                        <div class="copyright-text">
+                            <p>© 2025 Слово жизни. Все права защищены.</p>
+                            <p>Местная религиозная организация</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="VK profile">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="https://t.me/+79964755983" class="social-link" aria-label="Telegram channel">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-chevron-right"></i> О нас</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> События</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Богослужения</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Календарь</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Контакты</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Пасторская команда</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Москва, Павла Корчагина 2а</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@slovo-zhizni.ru">info@slovo-zhizni.ru</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Пн-Вс: 9:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Юридическая информация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-file-alt"></i> Политика конфиденциальности</a>
+                        <a href="#"><i class="fas fa-file-contract"></i> Публичная оферта</a>
+                        <a href="#"><i class="fas fa-balance-scale"></i> Реквизиты организации</a>
+                        <a href="#"><i class="fas fa-shield-alt"></i> Безопасность пожертвований</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal-info">
+                <p>* Местная религиозная организация Библейский центр христиан веры евангельской «Слово жизни» ОГРН 1037739249569, зарегистрирована в Минюсте РФ, бланк № 76 08941, учетный № 7711010455, дата выдачи 27.12.2010г.</p>
+                <p>** Централизованная религиозная организация Содружество церквей христиан веры евангельской (пятидесятников) «Слово жизни» ОГРН 1037739246951, бланк свидетельства Министерства юстиции ЦА 03303, учетный № 0011010266, дата выдачи 13.04.2016г.</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Сайт разработан с любовью для служения Божьему народу</p>
+            </div>
+        </div>
+    </footer>
+
+ <script src="js/history.js"></script>
+</body>
+</html>

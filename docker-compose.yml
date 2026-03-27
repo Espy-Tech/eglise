@@ -1,0 +1,45 @@
+# ============================================================
+#  docker-compose.yml – développement local
+#  Pour Render : utilise uniquement le Dockerfile + variables d'env
+# ============================================================
+version: "3.9"
+
+services:
+
+  # ---- Base de données MySQL ----
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: eglisep
+      MYSQL_USER: eglisep_user
+      MYSQL_PASSWORD: eglisep_pass
+      MYSQL_ROOT_PASSWORD: root_secret
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # ---- Application PHP + Apache ----
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: eglisep
+      DB_USER: eglisep_user
+      DB_PASS: eglisep_pass
+
+volumes:
+  db_data:

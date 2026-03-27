@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЛОВО ЖИЗНИ</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/christmasConcert.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=VOTRE_CLE_API&lang=ru_RU" type="text/javascript"></script>
+     <script src="js/main.js" defer></script>
+
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.php" class="logo">
+                    <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg " alt="КРАЕУГОЛНЫЙ КАМЕНЬ logo">
+                </a>
+            </div>
+            <nav class="navbar-center" aria-label="Main navigation">
+                <ul>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">О нас</a>
+                        <div class="dropdown-content">
+                            <a href="#">История церкви</a>
+                            <a href="Faith.html">Основы нашей Веры</a>
+                            <!--<a href="Welcome.html">Добро пожаловать</a>-->
+                            <a href="Vision.html">Видение</a>
+                            <a href="#">Команда служителей</a>
+                            
+                           <!-- <a href="socialWork.html">Социальная работа</a>-->
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">События</a>
+                        <div class="dropdown-content">
+                            <a href="#">Конференции</a>
+                            <a href="#">Мероприятия</a>
+                            <a href="#">Обучение</a>
+                           <!-- <a href="Learning.html">Обучение</a>
+                            <a href="musical-group.html">музыканты</a>-->
+
+                        </div>
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Служения</a>
+                            <div class="dropdown-content">
+                                <a href="#">Миссия</a>
+                                
+                                <a href="homeService.html">Домашние группы</a>
+                                <a href="alphaCourse.html">Альфа-курс</a>
+                                <a href="women.html">Женское служение</a>
+                                <a href="prayerRequest.html">Молитвенное служение</a>
+                                <a href="Older-generation.html">Старшее поколение</a>
+                                <a href="feedHungry.html">Накорми голодного</a>
+                                <a href="service.html">Хочу служить</a>
+                            </div>
+                        </li>
+                    </li>
+                    <li><a href="https://ruka-pomoshi23.ru/proekty/pomoshh-detyam/">Благотворительный фонд</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Богослужения</a>
+                        <div class="dropdown-content">
+                            <a href="Generale.html">Общие</a>
+                            <a href="For-kids.html">Для детей</a>
+                            <a href="Teens.html">Подростковые</a>
+                            <!--<a href="Youth.html">Молодежные</a>
+                            <a href="Older-generation.html">Старшее поколение</a>
+                            <a href="National.html">Национальные</a>-->
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <button class="donate-btn"><a href="donate.html">Пожертвовать</a></button>
+                <div class="header_right">
+                    <div class="search-container">
+                        <input type="text" id="site-search" placeholder="Поиск по сайту..." autocomplete="off">
+                        <button id="site-search-btn" aria-label="Поиск по сайту" type="button" class="site-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                    <!--<a href="#" class="lang-link active" data-lang="ru">RU</a> | <a href="#" class="lang-link" data-lang="en">EN</a>-->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Event Page -->
+    <div id="mainPage">
+        <header class="header">
+            <div class="floating-element floating-1"></div>
+            <div class="floating-element floating-2"></div>
+            <div class="floating-element floating-3"></div>
+            
+            <div class="container">
+                <div class="header-content">
+                    <div class="breadcrumb">
+                        <a href="#"><i class="fas fa-home"></i> Главная</a> 
+                        <i class="fas fa-chevron-right"></i> 
+                        <a href="#">Мероприятия</a> 
+                        <i class="fas fa-chevron-right"></i> 
+                        <span>Большой рождественский концерт 6+</span>
+                    </div>
+                    <h1 class="main-title">Большой рождественский концерт 6+</h1>
+                    
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">12</div>
+                            <div class="countdown-label">Дней</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">18</div>
+                            <div class="countdown-label">Часов</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">45</div>
+                            <div class="countdown-label">Минут</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">30</div>
+                            <div class="countdown-label">Секунд</div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-info">
+                        <div class="info-item">
+                            <i class="far fa-calendar-alt"></i>
+                            12-13 декабря, 19:00
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Алексеевская
+                        </div>
+                        <div class="info-item">
+                            <i class="far fa-clock"></i>
+                            Продолжительность: 2 часа
+                        </div>
+                    </div>
+                    <a href="#" class="register-btn">
+                        <i class="fas fa-ticket-alt"></i> Зарегистрироваться
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="container">
+                <div class="hotel-info">
+                    <h2 class="hotel-title"><i class="fas fa-hotel"></i> ОТЕЛЬ «ВИФЛЕЕМ»</h2>
+                    <p class="hotel-text">Приглашаем вас провести свой вечер в кругу близких и друзей в настоящей атмосфере рождественского концерта с живой музыкой и любимыми праздничными песнями.</p>
+                    <p class="hotel-text">«Отель "Вифлеем" — удивительная история, которая случилась в главную для всего человечества ночь. Свидетелями этой истории стали сотрудники и посетители отеля.</p>
+                    <p class="hotel-text">Адрес проведения: ул. Павла Корчагина, дом 2А, Москва</p>
+                    <a href="#" class="show-more">
+                        Показать полностью <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section gallery-section">
+            <div class="container">
+                <h2 class="section-title">Фотогалерея</h2>
+                <p class="section-subtitle">Взгляните на моменты прошлых концертов и почувствуйте атмосферу праздника</p>
+                
+                <div class="gallery-filters">
+                    <button class="gallery-filter active" data-filter="all">Все</button>
+                    <button class="gallery-filter" data-filter="photo">Фото</button>
+                    <button class="gallery-filter" data-filter="video">Видео</button>
+                </div>
+                
+                <div class="gallery-carousel">
+                    <div class="gallery-track">
+                        <div class="gallery-slide">
+                            <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Концертная сцена">
+                            <div class="slide-overlay">
+                                <div class="slide-title">Рождественский хор</div>
+                                <div class="slide-date">12 декабря 2023</div>
+                            </div>
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Зрители на концерте">
+                            <div class="slide-overlay">
+                                <div class="slide-title">Атмосфера праздника</div>
+                                <div class="slide-date">12 декабря 2023</div>
+                            </div>
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Артисты на сцене">
+                            <div class="slide-overlay">
+                                <div class="slide-title">Выступление ансамбля</div>
+                                <div class="slide-date">13 декабря 2023</div>
+                            </div>
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Музыканты">
+                            <div class="slide-overlay">
+                                <div class="slide-title">Оркестр</div>
+                                <div class="slide-date">12 декабря 2023</div>
+                            </div>
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Украшения зала">
+                            <div class="slide-overlay">
+                                <div class="slide-title">Праздничное убранство</div>
+                                <div class="slide-date">13 декабря 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="gallery-nav prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="gallery-nav next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <div class="gallery-dots">
+                        <button class="gallery-dot active" data-index="0"></button>
+                        <button class="gallery-dot" data-index="1"></button>
+                        <button class="gallery-dot" data-index="2"></button>
+                        <button class="gallery-dot" data-index="3"></button>
+                        <button class="gallery-dot" data-index="4"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section video-section">
+            <div class="container">
+                <h2 class="section-title">Видео с концертов</h2>
+                <p class="section-subtitle">Посмотрите записи с наших прошлых рождественских концертов</p>
+                
+                <div class="video-filters">
+                    <button class="video-filter active" data-video="trailer">Тизер</button>
+                    <button class="video-filter" data-video="concert1">Концерт 2022</button>
+                    <button class="video-filter" data-video="concert2">Концерт 2021</button>
+                    <button class="video-filter" data-video="behind">За кулисами</button>
+                </div>
+                
+                <div class="video-container active" id="trailer-player">
+                    <iframe class="video-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Тизер рождественского концерта" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="video-container" id="concert1-player">
+                    <iframe class="video-player" src="https://www.youtube.com/embed/9bZkp7q19f0" title="Рождественский концерт 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="video-container" id="concert2-player">
+                    <iframe class="video-player" src="https://www.youtube.com/embed/kJQP7kiw5Fk" title="Рождественский концерт 2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="video-container" id="behind-player">
+                    <iframe class="video-player" src="https://www.youtube.com/embed/fJ9rUzIMcZQ" title="За кулисами рождественского концерта" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="video-thumbnails">
+                    <div class="video-thumbnail" data-video="trailer">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Тизер концерта">
+                        <div class="video-thumbnail-overlay">
+                            <div class="play-button">
+                                <div class="play-icon"></div>
+                            </div>
+                        </div>
+                        <div class="video-thumbnail-title">Тизер концерта 2023</div>
+                    </div>
+                    
+                    <div class="video-thumbnail" data-video="concert1">
+                        <img src="https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg" alt="Концерт 2022">
+                        <div class="video-thumbnail-overlay">
+                            <div class="play-button">
+                                <div class="play-icon"></div>
+                            </div>
+                        </div>
+                        <div class="video-thumbnail-title">Рождественский концерт 2022</div>
+                    </div>
+                    
+                    <div class="video-thumbnail" data-video="concert2">
+                        <img src="https://img.youtube.com/vi/kJQP7kiw5Fk/maxresdefault.jpg" alt="Концерт 2021">
+                        <div class="video-thumbnail-overlay">
+                            <div class="play-button">
+                                <div class="play-icon"></div>
+                            </div>
+                        </div>
+                        <div class="video-thumbnail-title">Рождественский концерт 2021</div>
+                    </div>
+                    
+                    <div class="video-thumbnail" data-video="behind">
+                        <img src="https://img.youtube.com/vi/fJ9rUzIMcZQ/maxresdefault.jpg" alt="За кулисами">
+                        <div class="video-thumbnail-overlay">
+                            <div class="play-button">
+                                <div class="play-icon"></div>
+                            </div>
+                        </div>
+                        <div class="video-thumbnail-title">За кулисами концерта</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section rules-section">
+            <div class="container">
+                <div class="rules-card">
+                    <h2 class="rules-title"><i class="fas fa-clipboard-list"></i> ПРАВИЛА ПОСЕЩЕНИЯ</h2>
+                    <p class="rules-text">Мы хотим, чтобы каждый гость смог насладиться концертом и погрузиться в историю, лежащую в его основе. Поэтому убедительно просим вас позаботиться о том, чтобы на время концерта оставить с кем-то своих детей. В здании будет команда служителей, которая сможет присмотреть за детьми от 2 до 6 лет. Детей от 6 лет и старше будет необходимо отдельно зарегистрировать на мероприятие.</p>
+                    <p class="rules-text">Обращаем ваше внимание, что в зал нельзя входить с напитками и едой. Для вашего удобства в холле будет работать кафе. Также вы можете пронести с собой закрытую бутылку с водой.</p>
+                    <p class="rules-text">Мы будем благодарны, если вы поддержите праздничный дресс-код. Пожалуйста, подойдите к своему образу ответственно. Каждый гость — участник происходящего события.</p>
+                    <p class="rules-text">К сожалению, количество мест в зрительном зале ограничено. Поэтому вход в этом году будет осуществляться по регистрации с целевым пожертвованием. Это поможет создать безопасные и комфортные условия для всех зрителей, а также покрыть часть расходов на организацию. В день мероприятия на входе будет необходимо показать QR-код, который придет вам на почту после прохождения регистрации.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section registration-section">
+            <div class="container">
+                <h2 class="registration-title">Регистрация</h2>
+                <p class="section-subtitle">Забронируйте свое место на одном из концертов заранее</p>
+                
+                <div class="registration-buttons">
+                    <a href="#" class="reg-btn" onclick="showRegistrationForm('12 декабря'); return false;">
+                        <i class="far fa-calendar-check"></i> Регистрация на 12 декабря
+                    </a>
+                    <a href="#" class="reg-btn" onclick="showRegistrationForm('13 декабря'); return false;">
+                        <i class="far fa-calendar-check"></i> Регистрация на 13 декабря
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Registration Form -->
+    <div id="registrationForm" class="registration-form">
+        <a href="#" class="back-btn" onclick="showMainPage(); return false;">
+            <i class="fas fa-arrow-left"></i> Назад к мероприятию
+        </a>
+        <div class="form-header">
+            <img src="https://placehold.co/200x70/1a365d/ffffff?text=СЛОВО+ЖИЗНИ" alt="Логотип Слово Жизни" class="logo">
+        </div>
+        
+        <h1 class="form-title">Регистрация на <span id="selectedDate">большой рождественский концерт</span></h1>
+        
+        <div class="availability">
+            <i class="fas fa-ticket-alt"></i> Свободных мест: 1020
+        </div>
+        
+        <form id="registrationFormElement">
+            <div class="form-group">
+                <label for="firstName" class="form-label">Имя</label>
+                <input type="text" id="firstName" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName" class="form-label">Фамилия</label>
+                <input type="text" id="lastName" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" id="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone" class="form-label">Номер телефона</label>
+                <input type="tel" id="phone" class="form-input" required>
+            </div>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="consent" class="checkbox" required>
+                <label for="consent" class="consent-text">
+                    Я выражаю свое согласие Местной религиозной организации Библейский центр христиан веры евангельской (пятидесятников) «Слово жизни», адрес: 129278, г. Москва, ул. Павла Корчагина, дом 2А, на обработку моих персональных данных: фамилия, имя, email, телефон; в целях регистрации на большой рождественский концерт и получения информации о мероприятиях Церкви. Действия с персональными данными, на совершение которых дается согласие, как с использованием средств автоматизации, так и без таковых, в т.ч. третьими лицами в соответствии с действующим законодательством Российской Федерации и внутренними положениями Церкви: сбор, запись, систематизация, накопление, использование, хранение, уточнение, удаление, уничтожение. Данное согласие действует с момента его подписания до момента получения Церковью письменного заявления об отзыве настоящего согласия на обработку персональных данных. Согласие может быть отозвано мной путем составления заявления в письменной форме и подачи Церкви.
+                </label>
+            </div>
+            
+            <div class="donation-section">
+                <div class="donation-title">Целевое пожертвование: 1000 ₽</div>
+                <div class="donation-title">Целевое пожертвование возврату не подлежит</div>
+                
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="citizen" name="citizenship" class="radio-input" required>
+                        <label for="citizen">Я гражданин РФ</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="foreigner" name="citizenship" class="radio-input">
+                        <label for="foreigner">Я иностранный гражданин</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-check-circle"></i> Зарегистрироваться
+                </button>
+            </div>
+        </form>
+        
+        <div class="footer-info">
+            <p>* Местная религиозная организация Библейский центр христиан веры евангельской «Слово жизни» ОГРН 1037739249569, зарегистрирована в Минюсте РФ, бланк №76 08941, учетный № 7711010455, дата выдачи 27.12.2010 г.</p>
+            <p><a href="#" class="footer-link">«Политика в отношении обработки персональных данных»</a><a href="#" class="footer-link">Договор публичная оферта о добровольном пожертвовании</a></p>
+            
+            <p>** Централизованная религиозная организация Содружество церквей христиан веры евангельской (пятидесятников) «Слово жизни» ОГРН 1037739246951, бланк свидетельства Министерства юстиции ЦА 03303, учетный № 0011010266, дата выдачи 13.04.2016 г.</p>
+            <p><a href="#" class="footer-link">«Политика в отношении обработки персональных данных»</a><a href="#" class="footer-link">Договор публичная оферта о добровольном пожертвовании</a></p>
+            
+            <p>*** Централизованная религиозная организация «Ассоциация христиан веры евангельской (пятидесятников) «Церкви Веры» ИНН 7726284556, ОГРН 1037739245411, бланк свидетельства Министерства юстиции ЦА 00908, учетный № 0011010282, дата выдачи 19.01.2012 г.</p>
+        </div>
+    </div>
+
+      <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="copyright">
+                        <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg" alt="Слово жизни footer logo">
+                        <div class="copyright-text">
+                            <p>© 2025 Слово жизни. Все права защищены.</p>
+                            <p>Местная религиозная организация</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="VK profile">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram channel">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-chevron-right"></i> О нас</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> События</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Богослужения</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Календарь</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Контакты</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Пасторская команда</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Москва, Павла Корчагина 2а</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@slovo-zhizni.ru">info@slovo-zhizni.ru</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Пн-Вс: 9:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Юридическая информация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-file-alt"></i> Политика конфиденциальности</a>
+                        <a href="#"><i class="fas fa-file-contract"></i> Публичная оферта</a>
+                        <a href="#"><i class="fas fa-balance-scale"></i> Реквизиты организации</a>
+                        <a href="#"><i class="fas fa-shield-alt"></i> Безопасность пожертвований</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal-info">
+                <p>* Местная религиозная организация Библейский центр христиан веры евангельской «Слово жизни» ОГРН 1037739249569, зарегистрирована в Минюсте РФ, бланк № 76 08941, учетный № 7711010455, дата выдачи 27.12.2010г.</p>
+                <p>** Централизованная религиозная организация Содружество церквей христиан веры евангельской (пятидесятников) «Слово жизни» ОГРН 1037739246951, бланк свидетельства Министерства юстиции ЦА 03303, учетный № 0011010266, дата выдачи 13.04.2016г.</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Сайт разработан с любовью для служения Божьему народу</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="js/christmasConcert.js"></script>
+</body>
+</html>

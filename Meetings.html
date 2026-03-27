@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЛОВО ЖИЗНИ</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Meetings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=VOTRE_CLE_API&lang=ru_RU" type="text/javascript"></script>
+    <script src="js/main.js" defer></script>
+
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.php" class="logo">
+                    <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg " alt="КРАЕУГОЛНЫЙ КАМЕНЬ logo">
+                </a>
+            </div>
+            <nav class="navbar-center" aria-label="Main navigation">
+                <ul>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">О нас</a>
+                        <div class="dropdown-content">
+                            <a href="#">История церкви</a>
+                            <a href="Faith.html">Основы нашей Веры</a>
+                            <!--<a href="Welcome.html">Добро пожаловать</a>-->
+                            <a href="Vision.html">Видение</a>
+                            <a href="#">Команда служителей</a>
+                            
+                           <!-- <a href="socialWork.html">Социальная работа</a>-->
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">События</a>
+                        <div class="dropdown-content">
+                            <a href="#">Конференции</a>
+                            <a href="#">Мероприятия</a>
+                            <a href="#">Обучение</a>
+                           <!-- <a href="Learning.html">Обучение</a>
+                            <a href="musical-group.html">музыканты</a>-->
+
+                        </div>
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Служения</a>
+                            <div class="dropdown-content">
+                                <a href="#">Миссия</a>
+                                
+                                <a href="homeService.html">Домашние группы</a>
+                                <a href="alphaCourse.html">Альфа-курс</a>
+                                <a href="women.html">Женское служение</a>
+                                <a href="prayerRequest.html">Молитвенное служение</a>
+                                <a href="Older-generation.html">Старшее поколение</a>
+                                <a href="feedHungry.html">Накорми голодного</a>
+                                <a href="service.html">Хочу служить</a>
+                            </div>
+                        </li>
+                    </li>
+                    <li><a href="https://ruka-pomoshi23.ru/proekty/pomoshh-detyam/">Благотворительный фонд</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Богослужения</a>
+                        <div class="dropdown-content">
+                            <a href="Generale.html">Общие</a>
+                            <a href="For-kids.html">Для детей</a>
+                            <a href="Teens.html">Подростковые</a>
+                            <!--<a href="Youth.html">Молодежные</a>
+                            <a href="Older-generation.html">Старшее поколение</a>
+                            <a href="National.html">Национальные</a>-->
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <button class="donate-btn"><a href="donate.html">Пожертвовать</a></button>
+                <div class="header_right">
+                    <div class="search-container">
+                        <input type="text" id="site-search" placeholder="Поиск по сайту..." autocomplete="off">
+                        <button id="site-search-btn" aria-label="Поиск по сайту" type="button" class="site-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                    <!--<a href="#" class="lang-link active" data-lang="ru">RU</a> | <a href="#" class="lang-link" data-lang="en">EN</a>-->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Мероприятия</h1>
+                <p class="subtitle">Присоединяйтесь к нашим духовным событиям и обретите новую жизнь в Христе</p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Nouveau slider professionnel -->
+        <section class="events-slider-section">
+            <div class="slider-header">
+                <h2 class="slider-title">Предстоящие мероприятия</h2>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="events-slider-container">
+                <div class="events-slider" id="eventsSlider">
+                    <!-- Les slides seront générés par JavaScript -->
+                </div>
+                <div class="slider-progress" id="sliderProgress"></div>
+            </div>
+            
+            <div class="slider-dots" id="sliderDots">
+                <!-- Les points seront générés par JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Ancienne grille d'événements (cachée) -->
+        <div class="events-grid" id="eventsGrid">
+            <!-- Events will be populated by JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Event Detail Page -->
+    <div class="container">
+        <div id="eventDetailPage" class="event-detail-page">
+            <button class="back-button" onclick="EventApp.showEvents()">
+                <i class="fas fa-arrow-left"></i> Назад к мероприятиям
+            </button>
+            
+            <div class="breadcrumb">
+                <a href="#" onclick="EventApp.showEvents()">Мероприятия</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="detailTitle">Водное крещение</span>
+            </div>
+            
+            <div class="event-detail-header">
+                <img id="detailImage" src="" alt="">
+                <div class="event-detail-overlay">
+                    <h2 id="detailHeaderTitle" class="event-detail-title">Водное крещение</h2>
+                    <div class="event-detail-info">
+                        <div class="event-detail-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span id="detailDate">25 октября</span>
+                        </div>
+                        <div class="event-detail-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="detailLocation">Алексеевская</span>
+                        </div>
+                    </div>
+                    <button class="register-button" onclick="EventApp.showRegistration()">
+                        <i class="fas fa-user-plus"></i> Зарегистрироваться
+                    </button>
+                </div>
+            </div>
+            
+            <div class="event-content-section">
+                <div class="main-content">
+                    <p>Водное крещение — это первое и важнейшее таинство в жизни христианина. Писание говорит, что нам нужно родиться от воды и Духа, чтобы войти в Царство Божье (Евангелие от Иоанна 3:5).</p>
+                    <p>Крещение — это заповедь Христа и повеление Апостолов, это погребение старой и обретение новой жизни в Иисусе Христе, это знак Нового Завета, в который вступает человек.</p>
+                    
+                    <div class="important-info">
+                        <h3 class="important-info-title">
+                            <i class="fas fa-exclamation-circle"></i> Важная информация
+                        </h3>
+                        <p>• Заполните заявку на сайте до 14 октября 2025.</p>
+                        <p>• Церковь Слово жизни не крестит детей младше 14 лет.</p>
+                        <p>• В особых случаях служители церкви оставляют за собой право запросить документ удостоверяющий личность и рекомендацию пастора.</p>
+                        <p>• Для принятия водного крещения завершите обязательные семинары «Путь роста» (4 встречи), которые проходят каждое воскресенье в 16:30, адрес: Маленковская, Рижский проезд 3</p>
+                    </div>
+                </div>
+                
+                <div class="sidebar">
+                    <h3 class="sidebar-title">
+                        <i class="fas fa-headset"></i> Контакты
+                    </h3>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div><strong>Михайлов Евгений</strong></div>
+                            <div>@EvgenyMikhailov</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Registration Form -->
+    <div class="container">
+        <div id="registrationForm" class="registration-form">
+            <button class="back-button" onclick="EventApp.showEventDetail()">
+                <i class="fas fa-arrow-left"></i> Назад к мероприятию
+            </button>
+            
+            <div class="form-header">
+                <div class="form-logo">СЛОВО ЖИЗНИ</div>
+                <h2 class="form-title">Регистрация на <span id="formEventTitle">Водное крещение</span></h2>
+            </div>
+            
+            <div class="available-spots">Свободных мест: 17</div>
+            
+            <form id="registrationFormElement">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">ФИО</label>
+                        <input type="text" class="form-input" placeholder="Введите ваше ФИО" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Дата рождения</label>
+                        <input type="date" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Контактный телефон</label>
+                        <input type="tel" class="form-input" placeholder="+7 (XXX) XXX-XX-XX" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ник в Telegram</label>
+                        <input type="text" class="form-input" placeholder="@username">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">E-mail</label>
+                        <input type="email" class="form-input" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Церковь</label>
+                        <select class="form-select" required>
+                            <option value="">Выберите церковь</option>
+                            <option value="Слово жизни">«Слово жизни»</option>
+                            <option value="Другая церковь">Другая церковь</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Посещали ли вы семинар «Первый шаг — стань частью»?</label>
+                    <select class="form-select" required>
+                        <option value="">Выберите вариант</option>
+                        <option value="да">Да</option>
+                        <option value="нет">Нет</option>
+                    </select>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="consent" class="checkbox-input" required>
+                    <label for="consent" class="checkbox-label">
+                        Я выражаю свое согласие Местной религиозной организации Библейский центр христиан веры евангельской (пятидесятников) «Слово жизни», (далее - Оператор), адрес: 129278, г. Москва, ул. Павла Корчагина, дом 2А, на обработку моих персональных данных: фамилия, имя, дата рождения, телефон, город; в целях регистрации на Выезд «Встреча с Богом». Действия с персональными данными, на совершение которых дается согласие, как с использованием средств автоматизации, так и без таковых, в т.ч. третьими лицами в соответствии с действующим законодателем Российской Федерации и внутренними положениями Оператора: сбор, запись, систематизацию, накопление, хранение, уточнение, извлечение, использование, передачу, обезличивание, блокирование, удаление, уничтожение персональных данных. Данное согласие действует с момента его подписания до момента получения Оператором письменного заявления об отзыве настоящего согласия на обработку персональных данных.
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-check-circle"></i> Зарегистрироваться
+                </button>
+            </form>
+        </div>
+    </div>
+
+     <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="copyright">
+                        <img src="https://placehold.co/40x40/FFD700/000000?text=Л" alt="Слово жизни footer logo">
+                        <div class="copyright-text">
+                            <p>© 2025 Слово жизни. Все права защищены.</p>
+                            <p>Местная религиозная организация</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="VK profile">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram channel">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-chevron-right"></i> О нас</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> События</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Богослужения</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Календарь</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Контакты</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Пасторская команда</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Москва, Павла Корчагина 2а</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@slovo-zhizni.ru">info@slovo-zhizni.ru</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Пн-Вс: 9:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Юридическая информация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-file-alt"></i> Политика конфиденциальности</a>
+                        <a href="#"><i class="fas fa-file-contract"></i> Публичная оферта</a>
+                        <a href="#"><i class="fas fa-balance-scale"></i> Реквизиты организации</a>
+                        <a href="#"><i class="fas fa-shield-alt"></i> Безопасность пожертвований</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal-info">
+                <p>* Местная религиозная организация Библейский центр христиан веры евангельской «Слово жизни» ОГРН 1037739249569, зарегистрирована в Минюсте РФ, бланк № 76 08941, учетный № 7711010455, дата выдачи 27.12.2010г.</p>
+                <p>** Централизованная религиозная организация Содружество церквей христиан веры евангельской (пятидесятников) «Слово жизни» ОГРН 1037739246951, бланк свидетельства Министерства юстиции ЦА 03303, учетный № 0011010266, дата выдачи 13.04.2016г.</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Сайт разработан с любовью для служения Божьему народу</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="js/Meetings.js"></script>
+</body>
+</html>

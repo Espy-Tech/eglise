@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЛОВО ЖИЗНИ</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/donate.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=VOTRE_CLE_API&lang=ru_RU" type="text/javascript"></script>
+    <script src="js/main.js" defer></script>
+
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Загрузка...</div>
+    </div>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.php" class="logo">
+                    <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg " alt="КРАЕУГОЛНЫЙ КАМЕНЬ logo">
+                </a>
+            </div>
+            <nav class="navbar-center" aria-label="Main navigation">
+                <ul>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">О нас</a>
+                        <div class="dropdown-content">
+                            <a href="#">История церкви</a>
+                            <a href="Faith.html">Основы нашей Веры</a>
+                            <!--<a href="Welcome.html">Добро пожаловать</a>-->
+                            <a href="Vision.html">Видение</a>
+                            <a href="#">Команда служителей</a>
+                            
+                           <!-- <a href="socialWork.html">Социальная работа</a>-->
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">События</a>
+                        <div class="dropdown-content">
+                            <a href="#">Конференции</a>
+                            <a href="#">Мероприятия</a>
+                            <a href="#">Обучение</a>
+                           <!-- <a href="Learning.html">Обучение</a>
+                            <a href="musical-group.html">музыканты</a>-->
+
+                        </div>
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Служения</a>
+                            <div class="dropdown-content">
+                                <a href="#">Миссия</a>
+                                
+                                <a href="homeService.html">Домашние группы</a>
+                                <a href="alphaCourse.html">Альфа-курс</a>
+                                <a href="women.html">Женское служение</a>
+                                <a href="prayerRequest.html">Молитвенное служение</a>
+                                <a href="Older-generation.html">Старшее поколение</a>
+                                <a href="feedHungry.html">Накорми голодного</a>
+                                <a href="service.html">Хочу служить</a>
+                            </div>
+                        </li>
+                    </li>
+                    <li><a href="https://ruka-pomoshi23.ru/proekty/pomoshh-detyam/">Благотворительный фонд</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Богослужения</a>
+                        <div class="dropdown-content">
+                            <a href="Generale.html">Общие</a>
+                            <a href="For-kids.html">Для детей</a>
+                            <a href="Teens.html">Подростковые</a>
+                            <!--<a href="Youth.html">Молодежные</a>
+                            <a href="Older-generation.html">Старшее поколение</a>
+                            <a href="National.html">Национальные</a>-->
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Контакты</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="navbar-right">
+                <button class="donate-btn"><a href="donate.html">Пожертвовать</a></button>
+                <div class="header_right">
+                    <div class="search-container">
+                        <input type="text" id="site-search" placeholder="Поиск по сайту..." autocomplete="off">
+                        <button id="site-search-btn" aria-label="Поиск по сайту" type="button" class="site-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                    <!--<a href="#" class="lang-link active" data-lang="ru">RU</a> | <a href="#" class="lang-link" data-lang="en">EN</a>-->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Page -->
+    <div id="mainPage" class="page active">
+        <!-- Header Section -->
+        <section class="header-section">
+            <div class="container">
+                <div class="header-content">
+                    <img src="https://placehold.co/800x400/f5f7fa/333333?text=Слово+жизни" alt="Слово жизни">
+                    <h1 class="header-title">Пожертвовать</h1>
+                    <p class="header-subtitle">
+                        Благодаря вашей поддержке «Слово жизни» может продолжать насаждать церкви и распространять Евангелие
+                    </p>
+                    <div class="donation-form">
+                        <h3 class="form-title">Мы все больше используем электронные платежи в повседневной жизни. Так и церковь идет в ногу со временем. Эта форма даяний создана для того, чтобы вы могли осуществлять регулярные финансовые пожертвования через интернет.</h3>
+                        <div class="amount-input-container">
+                            <input type="number" class="amount-input" value="1000" min="1">
+                            <span class="currency-symbol">₽</span>
+                        </div>
+                        <div class="citizenship-options">
+                            <div class="citizenship-option">
+                                <input type="radio" id="citizen-rf" name="citizenship" checked>
+                                <label for="citizen-rf">Я гражданин РФ</label>
+                            </div>
+                            <div class="citizenship-option">
+                                <input type="radio" id="foreign-citizen" name="citizenship">
+                                <label for="foreign-citizen">Я иностранный гражданин</label>
+                            </div>
+                        </div>
+                        <button class="submit-btn" id="mainDonateBtn">Отправить</button>
+                        <p class="terms-text">
+                            *Нажимая на кнопку «Отправить», вы соглашаетесь с условиями <a href="#" class="terms-link">публичной оферты</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Partners Section -->
+        <section class="partners-section">
+            <div class="container">
+                <h2 class="section-title">Партнерские пожертвования</h2>
+                <div class="partners-grid">
+                    <!-- Card 1 -->
+                    <div class="partner-card">
+                        <div class="card-image">
+                            <img src="images/img4.jpg" alt="Ремонт третьего здания">
+                            <div class="card-overlay">
+                                <h3 class="card-title">Ремонт третьего здания</h3>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-text">
+                                Мы видим, как Бог открывает перед нами двери, чтобы церковь расширялась и росла. Вы можете стать частью этого и совершить целевое пожертвование на ремонт третьего здания, где будут проходить подростковые богослужения и различные службы и события церкви.
+                            </p>
+                            <div class="card-donation-form">
+                                <div class="amount-input-container">
+                                    <input type="number" class="amount-input" value="1000" min="1">
+                                    <span class="currency-symbol">₽</span>
+                                </div>
+                                <div class="citizenship-options">
+                                    <div class="citizenship-option">
+                                        <input type="radio" id="citizen-rf-1" name="citizenship-1" checked>
+                                        <label for="citizen-rf-1">Я гражданин РФ</label>
+                                    </div>
+                                    <div class="citizenship-option">
+                                        <input type="radio" id="foreign-citizen-1" name="citizenship-1">
+                                        <label for="foreign-citizen-1">Я иностранный гражданин</label>
+                                    </div>
+                                </div>
+                                <button class="card-submit-btn" data-purpose="building">Отправить</button>
+                                <p class="terms-text">
+                                    *Нажимая на кнопку «Отправить», вы соглашаетесь с условиями <a href="#" class="terms-link">публичной оферты</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="partner-card">
+                        <div class="card-image">
+                            <img src="images/image.png" alt="Социальная работа">
+                            <div class="card-overlay">
+                                <h3 class="card-title">Социальная работа</h3>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-text">
+                                Помощь ближнему — наша ответственность и возможность проявить любовь Бога здесь, на земле. Иисус шёл туда, где нуждающихся было много, а готовых помочь — не отвернуться — в разы меньше.
+                            </p>
+                            <p class="card-text">
+                                Мы как церковь можем поступать так же: протягивать руки, поддерживать, обнимать, кормить, благословлять, не отворачиваться, не игнорировать.
+                            </p>
+                            <div style="margin-top: 20px;">
+                                <button class="card-submit-btn" id="showFundPageBtn">Пожертвовать через сайт фонда</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div class="container">
+                <div class="mission-grid">
+                    <!-- Card 1 -->
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="images/img6.jpg" alt="Миссия: до края земли">
+                            <div class="mission-overlay">
+                                <h3 class="mission-title">Миссия: до края земли</h3>
+                            </div>
+                        </div>
+                        <div class="mission-content">
+                            <p class="mission-text">
+                                Основным видом нашей миссионерской деятельности является обучение христианской вере по всему миру, в том числе с помощью организации образовательных программ — от библейских школ до высшего богословского образования.
+                            </p>
+                            <p class="mission-text">
+                                Мы отправляем проповедников в церкви России, Европы, стран Азии и Ближнего Востока, чтобы они передавали учение веры и взращивали новых служителей поместных церквей. Также мы активно участвуем в организации конференций в городах России и мира, на которых тысячи людей слышат Евангелие.
+                            </p>
+                            <div class="mission-donation-form">
+                                <div class="amount-input-container">
+                                    <input type="number" class="amount-input" value="1000" min="1">
+                                    <span class="currency-symbol">₽</span>
+                                </div>
+                                <div class="citizenship-options">
+                                    <div class="citizenship-option">
+                                        <input type="radio" id="citizen-rf-2" name="citizenship-2" checked>
+                                        <label for="citizen-rf-2">Я гражданин РФ</label>
+                                    </div>
+                                    <div class="citizenship-option">
+                                        <input type="radio" id="foreign-citizen-2" name="citizenship-2">
+                                        <label for="foreign-citizen-2">Я иностранный гражданин</label>
+                                    </div>
+                                </div>
+                                <button class="card-submit-btn" data-purpose="mission">Отправить</button>
+                                <p class="terms-text">
+                                    *Нажимая на кнопку «Отправить», вы соглашаетесь с условиями <a href="#" class="terms-link">публичной оферты</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="mission-card">
+                        <div class="mission-image">
+                            <img src="images/img6.jpg" alt="Израиль">
+                            <div class="mission-overlay">
+                                <h3 class="mission-title">Израиль</h3>
+                            </div>
+                        </div>
+                        <div class="mission-content">
+                            <p class="mission-text">
+                                Мы помогаем евреям вернуться на их родину. Участвуем в строительстве мемориалов и памятников жертв Холокоста. Помогаем бывшим узникам концентрационных лагерей и гетто, снабжая их необходимыми лекарствами и оказывая другую благотворительную помощь.
+                            </p>
+                            <p class="mission-text">
+                                Мы принимаем активное участие в развитии Иудео-Христианского Диалога и проводим совместные молитвы за Израиль.
+                            </p>
+                            <div class="mission-donation-form">
+                                <div class="amount-input-container">
+                                    <input type="number" class="amount-input" value="1000" min="1">
+                                    <span class="currency-symbol">₽</span>
+                                </div>
+                                <div class="citizenship-options">
+                                    <div class="citizenship-option">
+                                        <input type="radio" id="citizen-rf-3" name="citizenship-3" checked>
+                                        <label for="citizen-rf-3">Я гражданин РФ</label>
+                                    </div>
+                                    <div class="citizenship-option">
+                                        <input type="radio" id="foreign-citizen-3" name="citizenship-3">
+                                        <label for="foreign-citizen-3">Я иностранный гражданин</label>
+                                    </div>
+                                </div>
+                                <button class="card-submit-btn" data-purpose="israel">Отправить</button>
+                                <p class="terms-text">
+                                    *Нажимая на кнопку «Отправить», вы соглашаетесь с условиями <a href="#" class="terms-link">публичной оферты</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Fund Page -->
+    <div id="fundPage" class="page fund-page">
+        <!-- Fund Header -->
+        <div class="fund-header">
+            <h1 class="fund-title">Благотворительный фонд «Рука помощи»</h1>
+            <p class="fund-subtitle">Поддержка беженцев, многодетных семей и детей с особенностями, пожилых людей на территории ЛНР и ДНР, а также в хосписах и домах престарелых</p>
+            <div class="fund-contact">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+7 (495) 970 62 03</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Москва, ул. Павла Корчагина д. 2а</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <span>helphand.ru@gmail.com</span>
+                </div>
+            </div>
+            <button class="cta-button" id="showHelpPageBtn">Как помочь?</button>
+        </div>
+        <!-- News Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title-alt">Новости фонда</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                    Дорогие друзья, мы хотим выразить вам искреннюю благодарность за ваше активное участие в деятельности нашего благотворительного фонда. Ваша поддержка и помощь играют огромную роль в достижении наших целей.
+                </p>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                    Каждый ваш вклад, будь то финансовая помощь или волонтерская работа, имеет огромное значение. Благодаря вашему участию мы можем оказывать помощь тем, кто в ней нуждается, и делать мир лучше.
+                </p>
+                <div class="news-grid">
+                    <!-- News Card 1 -->
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="images/img6.jpg" alt="Кормление нуждающихся">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">4 ноября 2024</div>
+                            <div class="news-title">Кормление нуждающихся людей в г. Донецк</div>
+                            <button class="news-button" data-details="news1">Подробнее →</button>
+                        </div>
+                    </div>
+                    <!-- News Card 2 -->
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="images/img6.jpg" alt="Подарки детям">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">27 сентября 2023</div>
+                            <div class="news-title">Подарок детям из ЛНР на День защиты детей</div>
+                            <button class="news-button" data-details="news2">Подробнее →</button>
+                        </div>
+                    </div>
+                    <!-- News Card 3 -->
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="images/img6.jpg" alt="Гуманитарная помощь">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">26 сентября 2023</div>
+                            <div class="news-title">Наш фонд посетил зону СВО с гуманитарной помощью</div>
+                            <button class="news-button" data-details="news3">Подробнее →</button>
+                        </div>
+                    </div>
+                    <!-- News Card 4 -->
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="images/img6.jpg" alt="Пункт временного размещения">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">25 сентября 2023</div>
+                            <div class="news-title">Наш фонд в очередной раз посетил пункты временного размещения</div>
+                            <button class="news-button" data-details="news4">Подробнее →</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="view-all-button" id="viewAllNewsBtn">Все новости →</button>
+                <!-- All News View -->
+                <div id="allNewsView" class="all-news-view">
+                    <div class="all-news-header">
+                        <h2 class="all-news-title">Все новости фонда</h2>
+                        <button class="close-all-news">Закрыть</button>
+                    </div>
+                    <div class="all-news-grid">
+                        <!-- All News Card 1 -->
+                        <div class="all-news-card">
+                            <div class="all-news-image">
+                                <img src="images/img6.jpg" alt="Кормление нуждающихся">
+                            </div>
+                            <div class="all-news-content">
+                                <div class="all-news-date">4 ноября 2024</div>
+                                <h3 class="all-news-title-card">Кормление нуждающихся людей в г. Донецк</h3>
+                                <div class="all-news-text">
+                                    <p>4 ноября 2024 года наш фонд организовал масштабную акцию по кормлению нуждающихся людей в городе Донецк. В мероприятии приняли участие более 50 волонтеров, которые приготовили и раздали более 1000 горячих обедов.</p>
+                                    <p>Акция проходила в центральном парке города, где собрались люди, оказавшиеся в трудной жизненной ситуации: пожилые люди, многодетные семьи, беженцы и бездомные.</p>
+                                    <p>Помимо горячего питания, мы также раздали теплую одежду, гигиенические наборы и лекарства первой необходимости. Медицинские работники из нашего фонда провели бесплатные консультации для всех желающих.</p>
+                                    <p>Эта акция стала возможной благодаря поддержке наших партнеров и частных жертвователей. Мы благодарим всех, кто принял участие в этом важном деле!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- All News Card 2 -->
+                        <div class="all-news-card">
+                            <div class="all-news-image">
+                                <img src="images/img4.jpg" alt="Подарки детям">
+                            </div>
+                            <div class="all-news-content">
+                                <div class="all-news-date">27 сентября 2023</div>
+                                <h3 class="all-news-title-card">Подарок детям из ЛНР на День защиты детей</h3>
+                                <div class="all-news-text">
+                                    <p>27 сентября 2023 года наш фонд организовал праздник для детей из Луганской Народной Республики, приуроченный ко Дню защиты детей. Мероприятие прошло в детском реабилитационном центре "Возрождение".</p>
+                                    <p>Для детей была подготовлена развлекательная программа с аниматорами, конкурсами и играми. Каждый ребенок получил индивидуальный подарок, собранный с учетом его возраста и интересов.</p>
+                                    <p>В подарки вошли:</p>
+                                    <ul>
+                                        <li>Развивающие игры и конструкторы</li>
+                                        <li>Книги и канцелярские принадлежности</li>
+                                        <li>Одежда и обувь</li>
+                                        <li>Сладости и фрукты</li>
+                                    </ul>
+                                    <p>Особое внимание было уделено детям с ограниченными возможностями здоровья. Для них были закуплены специальные развивающие наборы и оборудование.</p>
+                                    <p>Мы благодарим всех волонтеров и партнеров, которые помогли сделать этот день незабываемым для детей!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- All News Card 3 -->
+                        <div class="all-news-card">
+                            <div class="all-news-image">
+                                <img src="images/img6.jpg" alt="Гуманитарная помощь">
+                            </div>
+                            <div class="all-news-content">
+                                <div class="all-news-date">26 сентября 2023</div>
+                                <h3 class="all-news-title-card">Наш фонд посетил зону СВО с гуманитарной помощью</h3>
+                                <div class="all-news-text">
+                                    <p>26 сентября 2023 года представители нашего фонда совершили поездку в зону специальной военной операции с гуманитарной помощью для местных жителей и военнослужащих.</p>
+                                    <p>Было доставлено:</p>
+                                    <ul>
+                                        <li>Более 5 тонн продуктов питания длительного хранения</li>
+                                        <li>Медикаменты и перевязочные материалы</li>
+                                        <li>Теплая одежда и обувь</li>
+                                        <li>Средства личной гигиены</li>
+                                        <li>Детское питание и подгузники</li>
+                                    </ul>
+                                    <p>Наши волонтеры работали в сложных условиях, но смогли доставить помощь в самые отдаленные населенные пункты. Особое внимание было уделено пожилым людям и детям, которые не смогли эвакуироваться из зоны боевых действий.</p>
+                                    <p>Мы выражаем благодарность военным, которые обеспечили безопасность нашей гуманитарной миссии, и всем жертвователям, чьи средства сделали эту помощь возможной.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- All News Card 4 -->
+                        <div class="all-news-card">
+                            <div class="all-news-image">
+                                <img src="images/img6.jpg" alt="Пункт временного размещения">
+                            </div>
+                            <div class="all-news-content">
+                                <div class="all-news-date">25 сентября 2023</div>
+                                <h3 class="all-news-title-card">Наш фонд в очередной раз посетил пункты временного размещения</h3>
+                                <div class="all-news-text">
+                                    <p>25 сентября 2023 года наши волонтеры посетили пункты временного размещения беженцев в приграничных регионах. Это уже седьмой визит нашего фонда в эти места за последние три месяца.</p>
+                                    <p>В ходе визита мы:</p>
+                                    <ul>
+                                        <li>Оказали материальную помощь 150 семьям</li>
+                                        <li>Провели психологические консультации для детей и взрослых</li>
+                                        <li>Организовали раздачу горячего питания</li>
+                                        <li>Помогли с оформлением документов и поиском работы</li>
+                                        <li>Обеспечили детей школьными принадлежностями</li>
+                                    </ul>
+                                    <p>Особое внимание было уделено многодетным семьям и людям с ограниченными возможностями здоровья. Для них были закуплены специальные средства реабилитации и организована дополнительная поддержка.</p>
+                                    <p>Мы продолжаем мониторить ситуацию в пунктах временного размещения и планируем регулярные визиты для оказания помощи тем, кто в ней нуждается.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Supporting Funds Section -->
+        <section class="supporting-funds">
+            <div class="container">
+                <h2 class="supporting-title">Подопечные фонда</h2>
+                <div class="supporting-content">
+                    <div class="supporting-text">
+                        <h3>Государственное учреждение Луганской Народной Республики: Республиканский центр социальной реабилитации детей-инвалидов «Возрождение»</h3>
+                        <p>Мы гордимся тем, что можем поддерживать этот важный центр, который помогает детям с особыми потребностями развиваться и расти в любви и заботе.</p>
+                        <button class="supporting-button" data-details="supporting">Подробнее →</button>
+                    </div>
+                    <div class="supporting-image">
+                        <img src="images/img6.jpg" alt="Дети в центре">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Partners Section -->
+        <section class="partners-section-alt">
+            <div class="container">
+                <h2 class="partners-title">Партнёры фонда</h2>
+                <p class="partners-intro">
+                    Наш благотворительный фонд искренне ценит вклад и поддержку со стороны наших партнеров, которые становятся сильным крылом в реализации наших благотворительных инициатив. Мы дорожим сотрудничеством с такими уникальными компаниями и организациями.
+                </p>
+                <div class="partners-grid-alt">
+                    <!-- Partner 1 -->
+                    <div class="partner-logo-card">
+                        <div class="partner-logo">
+                            <img src="images/img6.jpg" alt="Рекорд">
+                        </div>
+                        <div class="partner-name">Бизнес-группа «Рекорд»</div>
+                    </div>
+                    <!-- Partner 2 -->
+                    <div class="partner-logo-card">
+                        <div class="partner-logo">
+                            <img src="images/img6.jpg" alt="Забота близко">
+                        </div>
+                        <div class="partner-name">Благотворительный фонд «Забота близко»</div>
+                    </div>
+                    <!-- Partner 3 -->
+                    <div class="partner-logo-card">
+                        <div class="partner-logo">
+                            <img src="images/img6.jpg" alt="Медведь поможет">
+                        </div>
+                        <div class="partner-name">Благотворительный фонд «Медведь поможет»</div>
+                    </div>
+                    <!-- Partner 4 -->
+                    <div class="partner-logo-card">
+                        <div class="partner-logo">
+                            <img src="https://placehold.co/100x100/f5f7fa/333333?text=Слово" alt="Слово жизни">
+                        </div>
+                        <div class="partner-name">Библейский центр христиан веры евангельской «Слово жизни»</div>
+                    </div>
+                </div>
+                <button class="become-partner-button" id="becomePartnerBtn">Стать партнёром →</button>
+            </div>
+        </section>
+        <!-- Volunteer Section -->
+        <section class="volunteer-section">
+            <div class="container">
+                <h2 class="volunteer-title">Стать волонтёром</h2>
+                <div class="volunteer-content">
+                    <div class="volunteer-text">
+                        <h3 class="volunteer-heading">Все наши волонтеры — это самые обычные люди.</h3>
+                        <h3 class="volunteer-subheading">Вполне возможно, что кто-то из них живет с вами по соседству, а вы и не знаете об этом.</h3>
+                        <p class="volunteer-description">Отличает их то, что часть своего свободного времени они посвящают помощи тем, кто в ней нуждается. И от этого все становятся счастливее.</p>
+                        <p class="volunteer-description">Если вы хотите стать волонтером, но не знаете, чем можете быть полезны Фонду, заполните анкету, и мы обязательно найдем для вас важное дело.</p>
+                        <button class="volunteer-button" id="showVolunteerPageBtn">Подать заявку →</button>
+                    </div>
+                    <div class="volunteer-image">
+                        <img src="images/img6.jpg" alt="Волонтеры">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Awards Section -->
+        <section class="awards-section">
+            <div class="container">
+                <h2 class="awards-title">Награды фонда</h2>
+                <p class="awards-intro">
+                    Каждое благодарственное письмо, отправленное нам или полученное от нас, является искренним признанием вашего вклада в наши благотворительные и общественные инициативы. Мы ценим вашу сердечность, доброту и поддержку, которые помогают нам делать добрые дела и приносить радость в жизни многих людей.
+                </p>
+                <p class="awards-intro">
+                    Присоединяйтесь к нашему фонду и станьте частью нашей ценной команды, где каждый вклад и жест доброты не остается незамеченным.
+                </p>
+                <div class="awards-grid">
+                    <!-- Award 1 -->
+                    <div class="award-card">
+                        <div class="award-image">
+                            <img src="images/img6.jpg" alt="Благодарность 1">
+                        </div>
+                    </div>
+                    <!-- Award 2 -->
+                    <div class="award-card">
+                        <div class="award-image">
+                            <img src="images/img6.jpg" alt="Благодарность 2">
+                        </div>
+                    </div>
+                    <!-- Award 3 -->
+                    <div class="award-card">
+                        <div class="award-image">
+                            <img src="images/img6.jpg" alt="Благодарность 3">
+                        </div>
+                    </div>
+                    <!-- Award 4 -->
+                    <div class="award-card">
+                        <div class="award-image">
+                            <img src="images/img6.jpg" alt="Благодарность 4">
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-button" id="prevAwardsBtn">←</button>
+                    <button class="nav-button" id="nextAwardsBtn">→</button>
+                </div>
+            </div>
+        </section>
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="team-title">Команда фонда</h2>
+                <p class="team-intro">
+                    В нашем благотворительном фонде работает команда преданных своему делу профессионалов, объединенных общей целью — помогать тем, кто в этом нуждается. Каждый из нас привносит уникальный опыт, знания и страсть к делу, что позволяет нам эффективно реализовывать наши проекты и программы.
+                </p>
+                <p class="team-intro">
+                    Мы активно сотрудничаем с волонтерами, экспертами и партнерами, чтобы обеспечить максимальную поддержку и помощь тем, кто находится в трудной жизненной ситуации. Мы верим, что только работая вместе, мы можем достичь значительных результатов и изменить жизни людей к лучшему.
+                </p>
+                <div class="team-grid">
+                    <!-- Team Member 1 -->
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <img src="images/img6.jpg" alt="Елена Шмигирилова">
+                        </div>
+                        <div class="team-info">
+                            <div class="team-name">Елена Шмигирилова</div>
+                            <div class="team-role">Руководитель отдела по работе с людьми переселенцами из зоны СВО</div>
+                        </div>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <img src="images/img6.jpg" alt="Елена Толстокорова">
+                        </div>
+                        <div class="team-info">
+                            <div class="team-name">Елена Толстокорова</div>
+                            <div class="team-role">Руководитель отдела по работе с семьями, воспитывающими детей, подростков и молодых людей с ОВЗ</div>
+                        </div>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <img src="images/img6.jpg" alt="Павел Абраменко">
+                        </div>
+                        <div class="team-info">
+                            <div class="team-name">Павел Абраменко</div>
+                            <div class="team-role">Руководитель отдела по работе с бездомными людьми</div>
+                        </div>
+                    </div>
+                    <!-- Team Member 4 -->
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <img src="images/img6.jpg" alt="Дмитрий Шмигирилов">
+                        </div>
+                        <div class="team-info">
+                            <div class="team-name">Дмитрий Шмигирилов</div>
+                            <div class="team-role">Руководитель отдела по работе с осужденными людьми</div>
+                        </div>
+                    </div>
+                    <!-- Team Member 5 -->
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <img src="images/img6.jpg" alt="Анна Федичкина">
+                        </div>
+                        <div class="team-info">
+                            <div class="team-name">Анна Федичкина</div>
+                            <div class="team-role">Руководитель отдела по работе с детскими домами</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-button" id="prevTeamBtn">←</button>
+                    <button class="nav-button" id="nextTeamBtn">→</button>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <h2 class="contact-title">Хотите знать больше о фонде?</h2>
+                <div class="contact-content">
+                    <div class="subscribe-box">
+                        <h3 class="subscribe-title">Укажите вашу эл.почту</h3>
+                        <form class="subscribe-form">
+                            <input type="email" class="subscribe-input" placeholder="Ваш email">
+                            <div class="subscribe-checkbox">
+                                <input type="checkbox" id="consent">
+                                <label for="consent">Даю согласие на обработку данных</label>
+                            </div>
+                            <button class="subscribe-button" id="subscribeBtn">Подписаться на новости</button>
+                        </form>
+                    </div>
+                    <div class="footer-info">
+                        <div class="footer-logo">
+                            <div class="logo-circle">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08s5.97 1.09 6 3.08c-1.29 1.94-3.5 3.22-6 3.22z" fill="#333"/>
+                                </svg>
+                            </div>
+                            <div class="logo-text">РУКА ПОМОЩИ</div>
+                        </div>
+                        <div class="footer-slogan">
+                            Чтобы помочь другому человеку, не обязательно быть сильным и богатым — достаточно быть добрым
+                        </div>
+                        <div class="footer-links">
+                            <a href="#" class="footer-link">Деятельность</a>
+                            <a href="#" class="footer-link">Документы</a>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <div class="contact-label">Контакты</div>
+                                <div>Мы работаем: Пн-Пт с 10:00 до 18:00</div>
+                                <div>Москва, ул. Павла Корчагина д. 2а</div>
+                                <div>helphand.ru@gmail.com</div>
+                            </div>
+                            <div class="phone-number">+7 (495) 970 62 03</div>
+                            <div class="phone-number">+7 (916) 551 62 03</div>
+                        </div>
+                        <div class="privacy-policy">
+                            <strong>Политика конфиденциальности</strong><br>
+                            Совершая пожертвование, пользователь заключает договор пожертвования путем акцепта публичной оферты. Все данные обрабатываются в соответствии с законодательством РФ о персональных данных.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Back to Main Button -->
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="card-submit-btn" id="backToMainFromFundBtn">← Назад на главную</button>
+        </div>
+    </div>
+    <!-- Help Page -->
+    <div id="helpPage" class="page help-page">
+        <!-- Help Header -->
+        <div class="help-header">
+            <h1 class="help-title">Как помочь фонду?</h1>
+        </div>
+        <!-- Help Content -->
+        <div class="help-content">
+            <!-- How We Help Section -->
+            <div class="help-section">
+                <h2 class="help-section-title">Мы помогаем:</h2>
+                <ul class="help-list">
+                    <li>семьям с особенными детьми;</li>
+                    <li>вынужденным переселенцам из горячих точек;</li>
+                    <li>бездомным людям;</li>
+                    <li>страдающим разного рода зависимостями и их близким (созависимым);</li>
+                    <li>неполным семьям;</li>
+                    <li>проводим благотворительные мероприятия в хосписах, военных госпиталях, детских домах, местах заключения.</li>
+                </ul>
+                <div class="help-quote">
+                    Помогая людям в их сложных обстоятельствах, мы хотим изменить наш мир в лучшую сторону. Давайте делать это вместе!
+                </div>
+            </div>
+            <!-- QR Code Section -->
+            <div class="qr-section">
+                <div class="qr-content">
+                    <h3 class="qr-title">Присоединяйтесь, протяните руку помощи!</h3>
+                    <h4 class="qr-subtitle">Пожертвовать в фонд «Рука Помощи»</h4>
+                    <button class="qr-button" id="showQRPaymentPageBtn">ПОЖЕРТВОВАТЬ</button>
+                </div>
+                <div class="qr-code">
+                    <img src="images/canvas.png" alt="QR Code">
+                </div>
+            </div>
+            <!-- Non-Financial Help Section -->
+            <div class="help-section">
+                <h2 class="help-section-title">Ваша помощь может быть не только финансовой!</h2>
+                <div class="social-content">
+                    <div class="social-text">
+                        <p>Вы можете активно участвовать в жизни организации, распространяя информацию о ее деятельности, публикуя посты в социальных сетях и рассказывая о ней друзьям и знакомым.</p>
+                        <p>Также вы можете подписаться на страницы организации в социальных сетях, чтобы быть в курсе всех событий и новостей, а также делиться информацией с другими пользователями. Таким образом, вы поможете расширить аудиторию и привлечь новых сторонников к важным проектам.</p>
+                    </div>
+                    <div class="social-box">
+                        <h3 class="social-title">Подписаться на страницы:</h3>
+                        <div class="social-icons">
+                            <div class="social-icon">T</div>
+                            <div class="social-icon">VK</div>
+                            <div class="social-icon">Y</div>
+                            <div class="social-icon">I</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Volunteer and Partner Section -->
+            <div class="volunteer-partner-section">
+                <div class="container">
+                    <h2 class="volunteer-partner-title">Стать волонтёром или партнёром</h2>
+                    <div class="volunteer-partner-grid">
+                        <!-- Volunteer Card -->
+                        <div class="volunteer-partner-card">
+                            <div class="volunteer-partner-icon">🤝</div>
+                            <h3 class="volunteer-partner-heading">Стать волонтёром</h3>
+                            <p class="volunteer-partner-description">Если вы хотите стать волонтером, но не знаете, чем можете быть полезны Фонду, заполните анкету, и мы обязательно найдем для вас важное дело.</p>
+                            <button class="volunteer-partner-button" id="showVolunteerPageFromHelpBtn">Подробнее →</button>
+                        </div>
+                        <!-- Partner Card -->
+                        <div class="volunteer-partner-card">
+                            <div class="volunteer-partner-icon">💼</div>
+                            <h3 class="volunteer-partner-heading">Стать партнёром</h3>
+                            <p class="volunteer-partner-description">Мы ищем единомышленников, готовых поддерживать наши благотворительные и общественные инициативы, чтобы вместе помогать тем, кто в них нуждается.</p>
+                            <button class="volunteer-partner-button" id="becomePartnerFromHelpBtn">Подробнее →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Subscribe Section -->
+            <section class="subscribe-section">
+                <div class="container">
+                    <h2 class="subscribe-section-title">Хотите знать больше о фонде?</h2>
+                    <div class="subscribe-form-container">
+                        <form class="subscribe-form">
+                            <input type="email" class="subscribe-input" placeholder="Укажите вашу эл.почту">
+                            <div class="subscribe-checkbox">
+                                <input type="checkbox" id="consent-help">
+                                <label for="consent-help">Даю согласие на обработку данных</label>
+                            </div>
+                            <button class="subscribe-button" id="subscribeFromHelpBtn">Подписаться на новости</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- Footer Section -->
+            <!-- Back to Fund Button -->
+            <div style="text-align: center; margin: 40px 0;">
+                <button class="card-submit-btn" id="backToFundFromHelpBtn">← Назад к фонду</button>
+            </div>
+        </div>
+    </div>
+    <!-- QR Payment Page -->
+    <div id="qrPaymentPage" class="page qr-payment-page">
+        <!-- QR Payment Header -->
+        <div class="qr-payment-header">
+            <h1 class="qr-payment-title">Для оплаты</h1>
+        </div>
+        <!-- QR Payment Content -->
+        <div class="qr-payment-content">
+            <div class="qr-code-container">
+                <div class="qr-code-image">
+                    <img src="images/canvas.png" alt="QR Code">
+                </div>
+            </div>
+            <div class="qr-instructions">
+                <h2 class="qr-instructions-title">Отсканируйте QR-код</h2>
+                <p class="qr-instructions-text">
+                    в мобильном приложении банка или штатной камерой телефона
+                </p>
+            </div>
+        </div>
+        <!-- Back to Help Button -->
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="card-submit-btn" id="backToHelpFromQRBtn">← Назад</button>
+        </div>
+    </div>
+    <!-- Volunteer Page -->
+    <div id="volunteerPage" class="page volunteer-page">
+        <!-- Volunteer Header -->
+        <div class="volunteer-header">
+            <h1 class="volunteer-title">Стать волонтёром фонда</h1>
+        </div>
+        <!-- Volunteer Content -->
+        <div class="volunteer-content">
+            <!-- Volunteer Intro -->
+            <div class="volunteer-intro">
+                <h2 class="volunteer-intro-title">Ищем таких же неравнодушных, как мы!</h2>
+                <p class="volunteer-intro-text">
+                    Хотите помогать нашим проектам не только словом, но и делом? Ваше участие — это не просто лишние руки. Это искра, которая зажигает других и реально меняет жизни тех, кому сейчас тяжело. Вместе мы сможем больше: и помочь конкретным людям, и создать по-настоящему сильное сообщество добрых дел.
+                </p>
+                <p class="volunteer-intro-text">
+                    Ваша энергия и желание творить добро — наш главный ресурс. Именно с вашей помощью мы воплотим задуманное и сможем поддержать тех, кто в этом нуждается. Уверены, что вместе мы построим что-то действительно стоящее и нужное. Свяжитесь с нами и мы расскажем, как можно помочь прямо сейчас!
+                </p>
+            </div>
+            <!-- Volunteer Form -->
+            <div class="volunteer-form">
+                <h2 class="volunteer-form-title">Анкета волонтёра фонда «Рука помощи»</h2>
+                <div class="form-group">
+                    <label class="form-label">Ваше имя*</label>
+                    <input type="text" class="form-input" placeholder="Как вас зовут?">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Ваш номер телефона*</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <select class="form-select" style="width: 60px;">
+                            <option>🇷🇺 +7</option>
+                            <option>🇺🇦 +38</option>
+                            <option>🇰🇿 +7</option>
+                        </select>
+                        <input type="tel" class="form-input" placeholder="(000) 000-00-00">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Ваша эл.почта*</label>
+                    <input type="email" class="form-input" placeholder="info@ya.ru">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Ваш телеграм (ник или номер)</label>
+                    <input type="text" class="form-input" placeholder="например: @helphand_org">
+                </div>
+                <div class="form-group" style="margin-top: 40px;">
+                    <label class="form-label">Есть ли у вас опыт волонтерской деятельности?*</label>
+                    <textarea class="form-input" rows="3" placeholder="Опишите ваш опыт волонтерской деятельности"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Какое направление волонтерской деятельности вам ближе (можно отметить несколько):*</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="volunteer-1">
+                            <label for="volunteer-1"><strong>«Накорми голодного»</strong> (кормление бездомных людей)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="volunteer-2">
+                            <label for="volunteer-2">Помощь беженцам в ПВР</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="volunteer-3">
+                            <label for="volunteer-3">Помощь семьям, воспитывающим детей, подростков, молодых людей с инвалидностью</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="volunteer-4">
+                            <label for="volunteer-4">Помощь одиноким мамам с детьми</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="volunteer-5">
+                            <label for="volunteer-5">Помощь в хосписа и домах престарелых</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="volunteer-6">
+                            <label for="volunteer-6"><strong>«В добрые руки»</strong> (собирать, сортировать и упаковывалась вещи, которые приносят для нуждающихся)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="volunteer-7">
+                            <label for="volunteer-7"><strong>«Забота близко»</strong> (помощь детям, оказавшимся в сложной ситуации)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="volunteer-8">
+                            <label for="volunteer-8">Помощь заключенным и их семьям</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Какие виды деятельности Вы предпочитаете:*</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity-1">
+                            <label for="activity-1">Связанные непосредственно с людьми (в том числе с незнакомыми)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity-2">
+                            <label for="activity-2">Не связанные с общением с людьми</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity-3">
+                            <label for="activity-3">Фотограф / видеограф</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity-4">
+                            <label for="activity-4">Парикмахер</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity-5">
+                            <label for="activity-5">Помощь автомобилем (отвезти что-то, встретить кого-то и т.д.)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity-6">
+                            <label for="activity-6">Ведение соц. сетей (smm-специалист, дизайнер, копирайтер)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity-7">
+                            <label for="activity-7">Проведение тематических мастер-классов для подопечных фонда</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity-8">
+                            <label for="activity-8">Другое:</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="consent-group">
+                    <div class="consent-item">
+                        <input type="checkbox" id="consent-1">
+                        <label for="consent-1">Даю согласие на <a href="#" style="color: var(--primary-color);">обработку данных</a></label>
+                    </div>
+                    <div class="consent-item">
+                        <input type="checkbox" id="consent-2" checked>
+                        <label for="consent-2">Получать новости фонда (раз в месяц)</label>
+                    </div>
+                </div>
+                <button class="submit-volunteer-button" id="submitVolunteerBtn">ОТПРАВИТЬ</button>
+            </div>
+            <!-- Back to Help Button -->
+            <div style="text-align: center; margin: 40px 0;">
+                <button class="card-submit-btn" id="backToHelpFromVolunteerBtn">← Назад</button>
+            </div>
+        </div>
+    </div>
+   
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="copyright">
+                        <img src="https://kk-church.ru/slava/wp-content/themes/kk/images/logo.svg" alt="Слово жизни footer logo">
+                        <div class="copyright-text">
+                            <p>© 2025 Слово жизни. Все права защищены.</p>
+                            <p>Местная религиозная организация</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="VK profile">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram channel">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-chevron-right"></i> О нас</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> События</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Богослужения</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Календарь</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Контакты</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Пасторская команда</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Москва, Павла Корчагина 2а</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@slovo-zhizni.ru">info@slovo-zhizni.ru</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <p>Пн-Вс: 9:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Юридическая информация</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-file-alt"></i> Политика конфиденциальности</a>
+                        <a href="#"><i class="fas fa-file-contract"></i> Публичная оферта</a>
+                        <a href="#"><i class="fas fa-balance-scale"></i> Реквизиты организации</a>
+                        <a href="#"><i class="fas fa-shield-alt"></i> Безопасность пожертвований</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal-info">
+                <p>* Местная религиозная организация Библейский центр христиан веры евангельской «Слово жизни» ОГРН 1037739249569, зарегистрирована в Минюсте РФ, бланк № 76 08941, учетный № 7711010455, дата выдачи 27.12.2010г.</p>
+                <p>** Централизованная религиозная организация Содружество церквей христиан веры евангельской (пятидесятников) «Слово жизни» ОГРН 1037739246951, бланк свидетельства Министерства юстиции ЦА 03303, учетный № 0011010266, дата выдачи 13.04.2016г.</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Сайт разработан с любовью для служения Божьему народу</p>
+            </div>
+        </div>
+    </footer>
+
+
+   <script src="js/donate.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

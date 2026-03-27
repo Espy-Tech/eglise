@@ -1,0 +1,9 @@
+- [x] Update include path in admin/events.php to '../backend/config.php'
+- [x] Replace $conn with $pdo in admin/events.php
+- [x] Convert insert statement to PDO syntax
+- [x] Convert delete query to PDO syntax
+- [x] Convert select query to PDO syntax
+- [x] Change table name from 'events' to 'calendar_events' in admin/events.php
+- [x] Update column names to match schema (date, time instead of event_date, event_time)
+- [x] Add date display to calendar events on main page
+- [x] Add functionality to filter and display events when clicking on calendar dates
