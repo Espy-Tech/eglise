@@ -1,28 +1,23 @@
-#!/bin/bash
+<?php
+$host = getenv('DB_HOST') ?: 'NON DEFINI';
+$port = getenv('DB_PORT') ?: 'NON DEFINI';
+$name = getenv('DB_NAME') ?: 'NON DEFINI';
+$user = getenv('DB_USER') ?: 'NON DEFINI';
+$pass = getenv('DB_PASS') ?: 'NON DEFINI';
 
-DB_HOST="${DB_HOST:-db}"
-DB_PORT="${DB_PORT:-3306}"
-DB_NAME="${DB_NAME:-eglisep}"
-DB_USER="${DB_USER:-eglisep_user}"
-DB_PASS="${DB_PASS:-eglisep_pass}"
+echo "<pre>";
+echo "DB_HOST : $host\n";
+echo "DB_PORT : $port\n";
+echo "DB_NAME : $name\n";
+echo "DB_USER : $user\n";
+echo "DB_PASS : " . (strlen($pass) > 3 ? substr($pass,0,3).'***' : 'VIDE') . "\n\n";
 
-(
-  MAX=30
-  COUNT=0
-  until php -r "try { new PDO('mysql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME;charset=utf8mb4','$DB_USER','$DB_PASS'); } catch(Exception \$e){ exit(1); }" 2>/dev/null; do
-    COUNT=$((COUNT+1))
-    [ $COUNT -ge $MAX ] && exit 1
-    echo "[db] tentative $COUNT/$MAX..."
-    sleep 3
-  done
-  php -r "
-    \$p = new PDO('mysql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME;charset=utf8mb4','$DB_USER','$DB_PASS');
-    \$s = file_get_contents('/var/www/html/backend/schema.sql');
-    \$s = preg_replace('/^CREATE DATABASE.*$/mi','',preg_replace('/^USE.*;$/mi','',\$s));
-    foreach(array_filter(array_map('trim',explode(';',\$s))) as \$q){ if(\$q) \$p->exec(\$q); }
-    echo 'Schema OK'.PHP_EOL;
-  "
-) &
-
-echo "[entrypoint] Démarrage Apache..."
-exec apache2-foreground
+try {
+    $dsn = "mysql:host=$host;port=$port;dbname=$name;charset=utf8mb4";
+    echo "DSN : $dsn\n\n";
+    $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    echo "CONNEXION OK !\n";
+} catch(Exception $e) {
+    echo "ERREUR : " . $e->getMessage() . "\n";
+}
+echo "</pre>";
