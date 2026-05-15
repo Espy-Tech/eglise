@@ -1,0 +1,5 @@
+{
+  "name": "next/font/google",
+  "display": "swap",
+  "fallback": "system-ui, -apple-system, sans-serif"
+}
